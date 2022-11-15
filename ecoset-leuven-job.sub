@@ -4,7 +4,7 @@ error = logs/job_$(Cluster)_$(Process).err
 output = logs/job_$(Cluster)_$(Process).out
 
 # Fill in with whatever executable you're using
-executable = /home/suresh27/Projects/vision_robustness_using_semantic_norms/scripts/condor_job.sh
+executable = /home/suresh27/Projects/vision_robustness_using_semantic_norms/scripts/condor-job.sh
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
@@ -15,14 +15,14 @@ transfer_input_files = /home/suresh27/Projects/vision_robustness_using_semantic_
 
 # Uncomment and add custom requirements
 # requirements =
-require_gpus = (GlobalMemoryMb >= 40000)
+require_gpus = (GlobalMemoryMb >= 50000)
 
 +WantGPULab = true
 +GPUJobLength = "long"
 
-request_gpus = 1
+request_gpus = 4
 request_cpus = 1
-request_memory = 400GB
+request_memory = 130GB
 request_disk = 1000GB
 
 queue 1

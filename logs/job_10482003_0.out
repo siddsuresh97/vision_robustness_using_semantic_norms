@@ -1,0 +1,114 @@
+PREFIX=/var/lib/condor/execute/slot1/dir_793257/miniconda3
+Unpacking payload ...
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /var/lib/condor/execute/slot1/dir_793257/miniconda3
+
+  added / updated specs:
+    - _libgcc_mutex==0.1=main
+    - _openmp_mutex==4.5=1_gnu
+    - brotlipy==0.7.0=py39h27cfd23_1003
+    - ca-certificates==2022.3.29=h06a4308_1
+    - certifi==2021.10.8=py39h06a4308_2
+    - cffi==1.15.0=py39hd667e15_1
+    - charset-normalizer==2.0.4=pyhd3eb1b0_0
+    - colorama==0.4.4=pyhd3eb1b0_0
+    - conda-content-trust==0.1.1=pyhd3eb1b0_0
+    - conda-package-handling==1.8.1=py39h7f8727e_0
+    - conda==4.12.0=py39h06a4308_0
+    - cryptography==36.0.0=py39h9ce1e76_0
+    - idna==3.3=pyhd3eb1b0_0
+    - ld_impl_linux-64==2.35.1=h7274673_9
+    - libffi==3.3=he6710b0_2
+    - libgcc-ng==9.3.0=h5101ec6_17
+    - libgomp==9.3.0=h5101ec6_17
+    - libstdcxx-ng==9.3.0=hd4cf53a_17
+    - ncurses==6.3=h7f8727e_2
+    - openssl==1.1.1n=h7f8727e_0
+    - pip==21.2.4=py39h06a4308_0
+    - pycosat==0.6.3=py39h27cfd23_0
+    - pycparser==2.21=pyhd3eb1b0_0
+    - pyopenssl==22.0.0=pyhd3eb1b0_0
+    - pysocks==1.7.1=py39h06a4308_0
+    - python==3.9.12=h12debd9_0
+    - readline==8.1.2=h7f8727e_1
+    - requests==2.27.1=pyhd3eb1b0_0
+    - ruamel_yaml==0.15.100=py39h27cfd23_0
+    - setuptools==61.2.0=py39h06a4308_0
+    - six==1.16.0=pyhd3eb1b0_1
+    - sqlite==3.38.2=hc218d9a_0
+    - tk==8.6.11=h1ccaba5_0
+    - tqdm==4.63.0=pyhd3eb1b0_0
+    - tzdata==2022a=hda174b7_0
+    - urllib3==1.26.8=pyhd3eb1b0_0
+    - wheel==0.37.1=pyhd3eb1b0_0
+    - xz==5.2.5=h7b6447c_0
+    - yaml==0.2.5=h7b6447c_0
+    - zlib==1.2.12=h7f8727e_1
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-4.5-1_gnu
+  brotlipy           pkgs/main/linux-64::brotlipy-0.7.0-py39h27cfd23_1003
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2022.3.29-h06a4308_1
+  certifi            pkgs/main/linux-64::certifi-2021.10.8-py39h06a4308_2
+  cffi               pkgs/main/linux-64::cffi-1.15.0-py39hd667e15_1
+  charset-normalizer pkgs/main/noarch::charset-normalizer-2.0.4-pyhd3eb1b0_0
+  colorama           pkgs/main/noarch::colorama-0.4.4-pyhd3eb1b0_0
+  conda              pkgs/main/linux-64::conda-4.12.0-py39h06a4308_0
+  conda-content-tru~ pkgs/main/noarch::conda-content-trust-0.1.1-pyhd3eb1b0_0
+  conda-package-han~ pkgs/main/linux-64::conda-package-handling-1.8.1-py39h7f8727e_0
+  cryptography       pkgs/main/linux-64::cryptography-36.0.0-py39h9ce1e76_0
+  idna               pkgs/main/noarch::idna-3.3-pyhd3eb1b0_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.35.1-h7274673_9
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.3.0-h5101ec6_17
+  libgomp            pkgs/main/linux-64::libgomp-9.3.0-h5101ec6_17
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.3.0-hd4cf53a_17
+  ncurses            pkgs/main/linux-64::ncurses-6.3-h7f8727e_2
+  openssl            pkgs/main/linux-64::openssl-1.1.1n-h7f8727e_0
+  pip                pkgs/main/linux-64::pip-21.2.4-py39h06a4308_0
+  pycosat            pkgs/main/linux-64::pycosat-0.6.3-py39h27cfd23_0
+  pycparser          pkgs/main/noarch::pycparser-2.21-pyhd3eb1b0_0
+  pyopenssl          pkgs/main/noarch::pyopenssl-22.0.0-pyhd3eb1b0_0
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py39h06a4308_0
+  python             pkgs/main/linux-64::python-3.9.12-h12debd9_0
+  readline           pkgs/main/linux-64::readline-8.1.2-h7f8727e_1
+  requests           pkgs/main/noarch::requests-2.27.1-pyhd3eb1b0_0
+  ruamel_yaml        pkgs/main/linux-64::ruamel_yaml-0.15.100-py39h27cfd23_0
+  setuptools         pkgs/main/linux-64::setuptools-61.2.0-py39h06a4308_0
+  six                pkgs/main/noarch::six-1.16.0-pyhd3eb1b0_1
+  sqlite             pkgs/main/linux-64::sqlite-3.38.2-hc218d9a_0
+  tk                 pkgs/main/linux-64::tk-8.6.11-h1ccaba5_0
+  tqdm               pkgs/main/noarch::tqdm-4.63.0-pyhd3eb1b0_0
+  tzdata             pkgs/main/noarch::tzdata-2022a-hda174b7_0
+  urllib3            pkgs/main/noarch::urllib3-1.26.8-pyhd3eb1b0_0
+  wheel              pkgs/main/noarch::wheel-0.37.1-pyhd3eb1b0_0
+  xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
+  yaml               pkgs/main/linux-64::yaml-0.2.5-h7b6447c_0
+  zlib               pkgs/main/linux-64::zlib-1.2.12-h7f8727e_1
+
+
+Preparing transaction: ...working... done
+Executing transaction: ...working... done
+installation finished.
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/condabin/conda
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/bin/conda
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/bin/conda-env
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/bin/activate
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/bin/deactivate
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/etc/profile.d/conda.sh
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/etc/fish/conf.d/conda.fish
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/shell/condabin/Conda.psm1
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/shell/condabin/conda-hook.ps1
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/lib/python3.9/site-packages/xontrib/conda.xsh
+no change     /var/lib/condor/execute/slot1/dir_793257/miniconda3/etc/profile.d/conda.csh
+modified      /var/lib/condor/execute/slot1/dir_793257/.bashrc
+
+==> For changes to take effect, close and re-open your current shell. <==
+

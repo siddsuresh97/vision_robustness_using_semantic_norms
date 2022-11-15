@@ -1,0 +1,30 @@
+  0%|          | 0/40 [00:00<?, ?it/s]Extracting : readline-8.1.2-h7f8727e_1.conda:   0%|          | 0/40 [00:00<?, ?it/s]Extracting : readline-8.1.2-h7f8727e_1.conda:   2%|2         | 1/40 [00:00<00:04,  7.87it/s]Extracting : pyopenssl-22.0.0-pyhd3eb1b0_0.conda:   2%|2         | 1/40 [00:00<00:04,  7.87it/s]Extracting : idna-3.3-pyhd3eb1b0_0.conda:   5%|5         | 2/40 [00:00<00:04,  7.87it/s]        Extracting : cffi-1.15.0-py39hd667e15_1.conda:   8%|7         | 3/40 [00:00<00:04,  7.87it/s]Extracting : xz-5.2.5-h7b6447c_0.conda:  10%|#         | 4/40 [00:00<00:04,  7.87it/s]       Extracting : ruamel_yaml-0.15.100-py39h27cfd23_0.conda:  12%|#2        | 5/40 [00:00<00:04,  7.87it/s]Extracting : ncurses-6.3-h7f8727e_2.conda:  15%|#5        | 6/40 [00:00<00:04,  7.87it/s]             Extracting : tk-8.6.11-h1ccaba5_0.conda:  18%|#7        | 7/40 [00:00<00:04,  7.87it/s]  Extracting : cryptography-36.0.0-py39h9ce1e76_0.conda:  20%|##        | 8/40 [00:00<00:04,  7.87it/s]Extracting : conda-package-handling-1.8.1-py39h7f8727e_0.conda:  22%|##2       | 9/40 [00:00<00:03,  7.87it/s]Extracting : requests-2.27.1-pyhd3eb1b0_0.conda:  25%|##5       | 10/40 [00:00<00:03,  7.87it/s]              Extracting : libstdcxx-ng-9.3.0-hd4cf53a_17.conda:  28%|##7       | 11/40 [00:00<00:03,  7.87it/s]Extracting : ca-certificates-2022.3.29-h06a4308_1.conda:  30%|###       | 12/40 [00:00<00:03,  7.87it/s]Extracting : certifi-2021.10.8-py39h06a4308_2.conda:  32%|###2      | 13/40 [00:00<00:03,  7.87it/s]    Extracting : certifi-2021.10.8-py39h06a4308_2.conda:  35%|###5      | 14/40 [00:00<00:00, 69.85it/s]Extracting : conda-4.12.0-py39h06a4308_0.conda:  35%|###5      | 14/40 [00:00<00:00, 69.85it/s]     Extracting : tqdm-4.63.0-pyhd3eb1b0_0.conda:  38%|###7      | 15/40 [00:00<00:00, 69.85it/s]   Extracting : setuptools-61.2.0-py39h06a4308_0.conda:  40%|####      | 16/40 [00:00<00:00, 69.85it/s]Extracting : pycosat-0.6.3-py39h27cfd23_0.conda:  42%|####2     | 17/40 [00:00<00:00, 69.85it/s]    Extracting : pip-21.2.4-py39h06a4308_0.conda:  45%|####5     | 18/40 [00:00<00:00, 69.85it/s]   Extracting : _libgcc_mutex-0.1-main.conda:  48%|####7     | 19/40 [00:00<00:00, 69.85it/s]   Extracting : brotlipy-0.7.0-py39h27cfd23_1003.conda:  50%|#####     | 20/40 [00:00<00:00, 69.85it/s]Extracting : six-1.16.0-pyhd3eb1b0_1.conda:  52%|#####2    | 21/40 [00:00<00:00, 69.85it/s]         Extracting : libgcc-ng-9.3.0-h5101ec6_17.conda:  55%|#####5    | 22/40 [00:00<00:00, 69.85it/s]Extracting : urllib3-1.26.8-pyhd3eb1b0_0.conda:  57%|#####7    | 23/40 [00:00<00:00, 69.85it/s]Extracting : ld_impl_linux-64-2.35.1-h7274673_9.conda:  60%|######    | 24/40 [00:00<00:00, 69.85it/s]Extracting : sqlite-3.38.2-hc218d9a_0.conda:  62%|######2   | 25/40 [00:00<00:00, 69.85it/s]          Extracting : libffi-3.3-he6710b0_2.conda:  65%|######5   | 26/40 [00:00<00:00, 69.85it/s]   Extracting : tzdata-2022a-hda174b7_0.conda:  68%|######7   | 27/40 [00:00<00:00, 69.85it/s]Extracting : conda-content-trust-0.1.1-pyhd3eb1b0_0.conda:  70%|#######   | 28/40 [00:00<00:00, 69.85it/s]Extracting : wheel-0.37.1-pyhd3eb1b0_0.conda:  72%|#######2  | 29/40 [00:00<00:00, 69.85it/s]             Extracting : pycparser-2.21-pyhd3eb1b0_0.conda:  75%|#######5  | 30/40 [00:00<00:00, 69.85it/s]Extracting : python-3.9.12-h12debd9_0.conda:  78%|#######7  | 31/40 [00:00<00:00, 69.85it/s]   Extracting : python-3.9.12-h12debd9_0.conda:  80%|########  | 32/40 [00:00<00:00, 92.13it/s]Extracting : zlib-1.2.12-h7f8727e_1.conda:  80%|########  | 32/40 [00:00<00:00, 92.13it/s]  Extracting : pysocks-1.7.1-py39h06a4308_0.conda:  82%|########2 | 33/40 [00:00<00:00, 92.13it/s]Extracting : libgomp-9.3.0-h5101ec6_17.conda:  85%|########5 | 34/40 [00:00<00:00, 92.13it/s]   Extracting : openssl-1.1.1n-h7f8727e_0.conda:  88%|########7 | 35/40 [00:00<00:00, 92.13it/s]Extracting : colorama-0.4.4-pyhd3eb1b0_0.conda:  90%|######### | 36/40 [00:00<00:00, 92.13it/s]Extracting : yaml-0.2.5-h7b6447c_0.conda:  92%|#########2| 37/40 [00:00<00:00, 92.13it/s]      Extracting : charset-normalizer-2.0.4-pyhd3eb1b0_0.conda:  95%|#########5| 38/40 [00:00<00:00, 92.13it/s]Extracting : _openmp_mutex-4.5-1_gnu.tar.bz2:  98%|#########7| 39/40 [00:00<00:00, 92.13it/s]                                                                                                         
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.12.0
+  latest version: 22.9.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+

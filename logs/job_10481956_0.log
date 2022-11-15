@@ -1,0 +1,41 @@
+000 (10481956.000.000) 2022-11-14 01:21:05 Job submitted from host: <128.104.101.92:9618?addrs=128.104.101.92-9618+[2607-f388-107c-501-a236-9fff-fe3c-caa8]-9618&alias=submit2.chtc.wisc.edu&noUDP&sock=schedd_6791_a3be>
+...
+040 (10481956.000.000) 2022-11-14 01:21:28 Started transferring input files
+	Transferring to host: <128.105.68.98:9618?addrs=128.105.68.98-9618+[2607-f388-2200-100-1270-fdff-fe74-900]-9618&alias=gpu2006.chtc.wisc.edu&noUDP&sock=slot1_2_1394036_38e9_6868>
+...
+040 (10481956.000.000) 2022-11-14 01:23:04 Finished transferring input files
+...
+001 (10481956.000.000) 2022-11-14 01:23:06 Job executing on host: <128.105.68.98:9618?addrs=128.105.68.98-9618+[2607-f388-2200-100-1270-fdff-fe74-900]-9618&alias=gpu2006.chtc.wisc.edu&noUDP&sock=startd_4094834_1bd9>
+...
+006 (10481956.000.000) 2022-11-14 01:23:14 Image size of job updated: 876
+	1  -  MemoryUsage of job (MB)
+	876  -  ResidentSetSize of job (KB)
+...
+006 (10481956.000.000) 2022-11-14 01:26:38 Image size of job updated: 5068184
+	1  -  MemoryUsage of job (MB)
+	876  -  ResidentSetSize of job (KB)
+...
+040 (10481956.000.000) 2022-11-14 01:26:39 Started transferring output files
+...
+040 (10481956.000.000) 2022-11-14 01:26:39 Finished transferring output files
+...
+005 (10481956.000.000) 2022-11-14 01:26:40 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:03:18, Sys 0 00:00:44  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:03:18, Sys 0 00:00:44  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	17816964  -  Run Bytes Sent By Job
+	36119633920  -  Run Bytes Received By Job
+	17816964  -  Total Bytes Sent By Job
+	36119633920  -  Total Bytes Received By Job
+	Partitionable Resources :       Usage    Request  Allocated Assigned
+	   Cpus                 :        0.65          1          1 
+	   Disk (KB)            : 78587850    1048576000 1052306211 
+	   Gpus (Average)       :        0             1          1 "GPU-f6d7e689"
+	   GpusMemory (MB)      :      820                          
+	   IoHeavy              :                                 0 
+	   Memory (MB)          :        1        409600     409600 
+
+	Job terminated of its own accord at 2022-11-14T07:26:38Z with exit-code 0.
+...
