@@ -18,6 +18,7 @@ import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 from tensorboardX import SummaryWriter
 
+
 # define pytorch device - useful for device-agnostic execution
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -33,12 +34,34 @@ DEVICE_IDS = [0, 1, 2, 3]  # GPUs to use
 # modify this to point to your data directory
 INPUT_ROOT_DIR = 'ecoset_leuven'
 TRAIN_IMG_DIR = 'ecoset_leuven/train'
+VAL_IMG_DIR = 'ecoset_leuven/val'
+TEST_IMG_DIR = 'ecoset_leuven/test'
 OUTPUT_DIR = 'alexnet_data_out'
 LOG_DIR = '/staging/suresh27/tensorboard/leuven_ecoset' + '/weighted_cross_entropy'  # tensorboard logs
 CHECKPOINT_DIR = OUTPUT_DIR + '/models'  # model checkpoints
 
 # make checkpoint path directory
 os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+
+# start a wandb run
+# import wandb
+# wandb.init(project="leuven_ecoset", entity="suresh27", config={
+#     "epochs": NUM_EPOCHS,
+#     "batch_size": BATCH_SIZE,
+#     "momentum": MOMENTUM,
+#     "lr_decay": LR_DECAY,
+#     "lr_init": LR_INIT,
+#     "image_dim": IMAGE_DIM,
+#     "num_classes": NUM_CLASSES,
+#     "device_ids": DEVICE_IDS,
+#     "input_root_dir": INPUT_ROOT_DIR,
+#     "train_img_dir": TRAIN_IMG_DIR,
+#     "output_dir": OUTPUT_DIR,
+#     "log_dir": LOG_DIR,
+#     "checkpoint_dir": CHECKPOINT_DIR,
+# })
+# # name the run
+wandb.run.name = "alexnet_leuven_ecoset"
 
 class AlexNet(nn.Module):
     def __init__(self, num_classes: int = 1000, dropout: float = 0.5) -> None:
@@ -94,7 +117,7 @@ if __name__ == '__main__':
     print('AlexNet created')
 
     # create dataset and data loader
-    dataset = datasets.ImageFolder(TRAIN_IMG_DIR, transforms.Compose([
+    train_dataset = datasets.ImageFolder(TRAIN_IMG_DIR, transforms.Compose([
         # transforms.RandomResizedCrop(IMAGE_DIM, scale=(0.9, 1.0), ratio=(0.9, 1.1)),
         transforms.CenterCrop(IMAGE_DIM),
         # transforms.RandomHorizontalFlip(),
@@ -102,8 +125,8 @@ if __name__ == '__main__':
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ]))
     print('Dataset created')
-    dataloader = data.DataLoader(
-        dataset,
+    train_dataloader = data.DataLoader(
+        train_dataset,
         shuffle=True,
         pin_memory=True,
         num_workers=8,
@@ -111,8 +134,50 @@ if __name__ == '__main__':
         batch_size=BATCH_SIZE)
     print('Dataloader created')
 
-    # create weights for each class to account for class imbalance
-    class_weights = torch.FloatTensor(dataset.class_to_idx.values()).to(device)
+    # add code to load validation data and create validation dataloader
+    val_dataset = datasets.ImageFolder(VALIDATION_IMG_DIR, transforms.Compose([
+        transforms.CenterCrop(IMAGE_DIM),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ]))
+    print('Validation dataset created')
+    val_dataloader = data.DataLoader(
+        val_dataset,
+        shuffle=False,
+        pin_memory=True,
+        num_workers=8,
+        drop_last=True,
+        batch_size=BATCH_SIZE)
+    print('Validation dataloader created')
+
+    # add code to load test data and create test dataloader
+    test_dataset = datasets.ImageFolder(TEST_IMG_DIR, transforms.Compose([
+        transforms.CenterCrop(IMAGE_DIM),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ]))
+    print('Test dataset created')
+    test_dataloader = data.DataLoader(
+        test_dataset,
+        shuffle=False,
+        pin_memory=True,
+        num_workers=8,
+        drop_last=True,
+        batch_size=BATCH_SIZE)
+    print('Test dataloader created')
+
+
+
+    # create weights for each class to account for class imbalance. This is done by
+    # counting the number of samples in each class and dividing by the total number of samples
+    # to get the class weights. These weights are then used in the loss function.
+    class_weights = [0] * NUM_CLASSES
+    for _, label in dataset:
+        class_weights[label] += 1
+    total_samples = sum(class_weights)
+    class_weights = [total_samples / c for c in class_weights]
+    print('Class weights: {}'.format(class_weights))
+
 
     # create optimizer
     # the one that WORKS
@@ -154,11 +219,44 @@ if __name__ == '__main__':
                     with torch.no_grad():
                         _, preds = torch.max(output, 1)
                         accuracy = torch.sum(preds == classes)
-
                         print('Epoch: {} \tStep: {} \tLoss: {:.4f} \tAcc: {}'
                             .format(epoch + 1, total_steps, loss.item(), accuracy.item()))
                         tbwriter.add_scalar('loss', loss.item(), total_steps)
                         tbwriter.add_scalar('accuracy', accuracy.item(), total_steps)
+
+                        # calculate the validation loss and accuracy
+                        val_loss = 0
+                        val_accuracy = 0
+                        for val_imgs, val_classes in val_dataloader:
+                            val_imgs, val_classes = val_imgs.to(device), val_classes.to(device)
+                            val_output = alexnet(val_imgs)
+                            val_loss += F.cross_entropy(val_output, val_classes, weight=class_weights)
+                            _, val_preds = torch.max(val_output, 1)
+                            val_accuracy += torch.sum(val_preds == val_classes)
+                        val_loss /= len(val_dataloader)
+                        val_accuracy /= len(val_dataset)
+                        # print('Validation loss: {:.4f} \tValidation accuracy: {:.4f}'
+                        #     .format(val_loss, val_accuracy))
+                        tbwriter.add_scalar('val_loss', val_loss, total_steps)
+                        tbwriter.add_scalar('val_accuracy', val_accuracy, total_steps)
+                        
+                        # calculate the test loss and accuracy
+                        test_loss = 0
+                        test_accuracy = 0
+                        for test_imgs, test_classes in test_dataloader:
+                            test_imgs, test_classes = test_imgs.to(device), test_classes.to(device)
+                            test_output = alexnet(test_imgs)
+                            test_loss += F.cross_entropy(test_output, test_classes, weight=class_weights)
+                            _, test_preds = torch.max(test_output, 1)
+                            test_accuracy += torch.sum(test_preds == test_classes)
+                        test_loss /= len(test_dataloader)
+                        test_accuracy /= len(test_dataset)
+                        # print('Test loss: {:.4f} \tTest accuracy: {:.4f}'
+                        #     .format(test_loss, test_accuracy))
+                        tbwriter.add_scalar('test_loss', test_loss, total_steps)
+                        tbwriter.add_scalar('test_accuracy', test_accuracy, total_steps)
+                        print('Epoch: {} \tStep: {} \tTrain_Loss: {:.4f} \tTrain_Acc: {}\tValidation loss: {:.4f} \tValidation accuracy: {:.4f}\tTest loss: {:.4f} \tTest accuracy: {:.4f}'
+                            .format(epoch + 1, total_steps, loss.item(), accuracy.item(), val_loss, val_accuracy, test_loss, test_accuracy))
 
                 # print out gradient values and parameter average values
                 if total_steps % 100 == 0:
