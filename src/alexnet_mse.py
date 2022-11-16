@@ -9,6 +9,8 @@ Implementation of AlexNet, from paper
 See: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
 """
 import os
+import numpy as np
+import pickle
 import wandb
 import torch
 import torch.nn as nn
@@ -30,7 +32,8 @@ MOMENTUM = 0.9
 LR_DECAY = 0.0005
 LR_INIT = 0.01
 IMAGE_DIM = 227  # pixels
-NUM_CLASSES = 86  # 1000 classes for imagenet 2012 dataset
+NDIM = 6  # 5 output dims
+NUM_CLASSES = 86
 DEVICE_IDS = [0, 1, 2, 3]  # GPUs to use
 # modify this to point to your data directory
 INPUT_ROOT_DIR = 'ecoset_leuven'
@@ -64,6 +67,8 @@ parser.add_argument('--alexnet_og_hyperparams', default=True,
                     help='use original alexnet hyper parameters')
 parser.add_argument('--lr_decay', type=float, default=LR_DECAY, metavar='LR',
                     help='learning rate decay (default: 0.0005)')
+parser.add_argument('--ndim', type=int, default=NDIM, metavar='N',
+                    help='ndim(default: 5)')
 parser.add_argument('--num_classes', type=int, default=NUM_CLASSES, metavar='N',
                     help='number of classes (default: 86)')
 parser.add_argument('--device_ids', nargs='+', type=int, default="0 1 2 3", metavar='N',
@@ -78,7 +83,7 @@ parser.add_argument('--validation_img_dir', type=str, default=VALIDATION_IMG_DIR
                     help='validation image directory (default: ecoset_leuven/val)')
 parser.add_argument('--test_img_dir', type=str, default=TEST_IMG_DIR, metavar='N',
                     help='test image directory (default: ecoset_leuven/test)')
-parser.add_argument('--weighted_loss', default=True)
+parser.add_argument('--weighted_loss', type = bool, default=True)
 parser.add_argument('--overfit', type = bool, default=False)
 parser.add_argument('--switch_on_lr_decay', type = bool, default=True)
 
@@ -185,14 +190,19 @@ class_weights_dict = {'towel': 0.8943063698523465,
 # use wandb api key
 wandb.login(key='18a861e71f78135d23eb672c08922edbfcb8d364')
 # start a wandb run
-wandb.init(project="semantic-norms-alexnet", entity="siddsuresh97", settings=wandb.Settings(code_dir="vision_robustness_using_semantic_norms/src/alexnet.py"))
+wandb.init(project="semantic-norms-alexnet", entity="siddsuresh97", settings=wandb.Settings(code_dir="vision_robustness_using_semantic_norms/src/alexnet_mse.py"))
 config = wandb.config
 
 #name the wandb run
 wandb.run.name = args.exp_name
 
 
+# load the leuven_mds_dict.pickle from the data directory
+with open('vision_robustness_using_semantic_norms/data/leuven_mds_dict.pickle', 'rb') as handle:
+    leuven_mds_dict = pickle.load(handle)
 
+def weighted_mse_loss(input, target, weight):
+    return (weight * (input - target) ** 2).mean()
 
 class AlexNet(nn.Module):
     def __init__(self, num_classes: int = 86, dropout: float = 0.5) -> None:
@@ -243,7 +253,7 @@ if __name__ == '__main__':
     # print('TensorboardX summary writer created')
 
     # create model
-    alexnet = AlexNet(num_classes=args.num_classes).to(device)
+    alexnet = AlexNet(num_classes=args.ndim).to(device)
     # train on multiple GPUs
     alexnet = torch.nn.parallel.DataParallel(alexnet, device_ids=args.device_ids)
     print(alexnet)
@@ -342,14 +352,16 @@ if __name__ == '__main__':
                 train_dataloader = debug_data_loader
             for imgs, classes in train_dataloader:
                 alexnet.train()
-                imgs, classes = imgs.to(device), classes.to(device)
-
+                imgs, classes = imgs.to(device), classes
+                target = torch.tensor([leuven_mds_dict[list(train_dataset.class_to_idx.keys())[i]] for i in classes]).to(device)
                 # calculate the loss
                 output = alexnet(imgs)
-                if args.weighted_loss:
-                    loss = F.cross_entropy(output, classes, weight=class_weights)
+                if args.weighted_loss==True:
+                    import ipdb;ipdb.set_trace()
+                    batch_weights = torch.tensor([class_weights[i] for i in classes]).to(device)
+                    loss = weighted_mse_loss(output, target, batch_weights)
                 else:
-                    loss = F.cross_entropy(output, classes)
+                    loss = F.MSELoss(output, target)
                 #loss = F.cross_entropy(output, classes)
 
                 # update the parameters
@@ -363,7 +375,11 @@ if __name__ == '__main__':
                         alexnet.eval()
                         output = alexnet(imgs)
                         # import ipdb; ipdb.set_trace()
-                        _, preds = torch.max(output, 1)
+                        # _, preds = torch.max(output, 1)
+                        # look at the output and see which value of leuven_mds_dict is closest
+                        # by using the euclidean distance. calculate distance of output to each
+                        # of the values in leuven_mds_dict and take the argmin
+                        preds = torch.Tensor([torch.argmin(torch.norm(output[i] - torch.Tensor([torch.tensor(leuven_mds_dict[i]) for i in train_dataset.classes]), dim=1)) for i in range(len(output))]).to(device)
                         accuracy = torch.sum(preds == classes)
                         accuracy = accuracy / len(classes)
                         print('Epoch: {} \tStep: {} \tLoss: {:.4f} \tAcc: {}'
@@ -378,11 +394,14 @@ if __name__ == '__main__':
                         for val_imgs, val_classes in val_dataloader:
                             val_imgs, val_classes = val_imgs.to(device), val_classes.to(device)
                             val_output = alexnet(val_imgs)
-                            if args.weighted_loss:
-                                val_loss += F.cross_entropy(val_output, val_classes, weight=class_weights)
+                            target = torch.Tensor([leuven_mds_dict[list(val_dataset.class_to_idx.keys())[i]] for i in val_classes]).to(device)
+                            if args.weighted_loss==True:
+                                batch_weights = torch.tensor([class_weights[i] for i in val_classes]).to(device)
+                                val_loss += weighted_mse_loss(val_output, target, weight=batch_weights)
                             else:
-                                val_loss += F.cross_entropy(val_output, val_classes)
-                            _, val_preds = torch.max(val_output, 1)
+                                val_loss += F.MSELoss(val_output, target)
+                            # _, val_preds = torch.max(val_output, 1)
+                            val_preds = torch.Tensor([torch.argmin(torch.norm(val_output[i] - torch.Tensor([torch.tensor(leuven_mds_dict[i]) for i in val_dataset.classes]), dim=1)) for i in range(len(val_output))]).to(device)
                             val_accuracy += torch.sum(val_preds == val_classes)
                         val_loss = val_loss.item()/len(val_dataloader)
                         val_accuracy = val_accuracy.item()/len(val_dataset)
@@ -398,11 +417,14 @@ if __name__ == '__main__':
                         for test_imgs, test_classes in test_dataloader:
                             test_imgs, test_classes = test_imgs.to(device), test_classes.to(device)
                             test_output = alexnet(test_imgs)
-                            if args.weighted_loss:    
-                                test_loss += F.cross_entropy(test_output, test_classes, weight=class_weights)
+                            target = torch.Tensor([leuven_mds_dict[list(test_dataset.class_to_idx.keys())[i]] for i in test_classes]).to(device)
+                            if args.weighted_loss==True:
+                                batch_weights = torch.tensor([class_weights[i] for i in test_classes]).to(device)    
+                                test_loss += weighted_mse_loss(test_output, target, weight=batch_weights)
                             else:
-                                test_loss += F.cross_entropy(test_output, test_classes)
-                            _, test_preds = torch.max(test_output, 1)
+                                test_loss += F.MSELoss(test_output, target)
+                            # _, test_preds = torch.max(test_output, 1)
+                            test_preds = torch.Tensor([torch.argmin(torch.norm(test_output[i] - torch.Tensor([torch.tensor(leuven_mds_dict[i]) for i in test_dataset.classes]), dim=1)) for i in range(len(test_output))]).to(device)
                             test_accuracy += torch.sum(test_preds == test_classes)
                         test_loss = test_loss.item()/len(test_dataloader)
                         test_accuracy = test_accuracy.item()/len(test_dataset)
