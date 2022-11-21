@@ -382,7 +382,7 @@ if __name__ == '__main__':
     start_epoch = 0 
     if args.resume_training:
         print('Resuming training from checkpoint')
-        for i in range(90, 0, -1):
+        for i in range(args.epochs, 0, -1):
             checkpoint_path = os.path.join(CHECKPOINT_DIR, 'alexnet_states_e{}.pkl'.format(i))
             if os.path.exists(checkpoint_path):
                 print('Loading checkpoint from {}'.format(checkpoint_path))
