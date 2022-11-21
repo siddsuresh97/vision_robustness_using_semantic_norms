@@ -92,6 +92,7 @@ parser.add_argument('--run_id', type = str, default = None)
 parser.add_argument('--eval', type = str, default = 'euclidean')
 parser.add_argument('--add_hidden_layers', action='store_true')
 parser.add_argument('--triplet_loss', action='store_true')
+parser.add_argument('--nll_loss', action='store_true')
 
 args = parser.parse_args()
 # parse command line arguments
@@ -429,6 +430,9 @@ if __name__ == '__main__':
                     negative_target = torch.tensor(np.array([leuven_mds_dict[list(train_dataset.class_to_idx.keys())[i]] for i in neg_classes])).to(device)
                     triplet_loss = nn.TripletMarginLoss(margin=1.0, p=2)
                     loss = triplet_loss(output, target, negative_target)
+                elif (args.nll_loss==True):
+                    # batch_weights = torch.tensor([class_weights[i] for i in classes]).to(device)
+                    loss = nn.NLLLoss()(output, target)
                 else:
                     print('using unweighted loss', args.weighted_loss)
                     loss = F.mse_loss(output, target)
@@ -453,7 +457,7 @@ if __name__ == '__main__':
                         if args.eval == 'euclidean':
                             preds = torch.Tensor([torch.argmin(torch.norm(output[j]-torch.Tensor([leuven_mds_dict[i] for i in train_dataset.classes]).to(device), dim = 1)) for j in range(len(output))]).to(device)
                         elif args.eval == 'cosine':
-                            preds = torch.Tensor([torch.argmax(F.cosine_similarity(output[j].unsqueeze(0), torch.Tensor([leuven_mds_dict[i] for i in train_dataset.classes]).to(device), dim = 1)) for j in range(len(output))]).to(device)
+                            preds = torch.Tensor([torch.argmax(F.cosine_similarity(output[j].unsqueeze(0), torch.Tensor(np.array([leuven_mds_dict[i] for i in train_dataset.classes])).to(device), dim = 1)) for j in range(len(output))]).to(device)
                         else:
                             raise ValueError('Invalid evaluation metric')
                         accuracy = torch.sum(preds == classes.to(device))
@@ -486,13 +490,16 @@ if __name__ == '__main__':
                                 negative_target = torch.tensor(np.array([leuven_mds_dict[list(train_dataset.class_to_idx.keys())[i]] for i in neg_classes])).to(device)
                                 triplet_loss = nn.TripletMarginLoss(margin=1.0, p=2)
                                 val_loss = triplet_loss(output, target, negative_target)
+                            elif (args.nll_loss==True):
+                                # batch_weights = torch.tensor([class_weights[i] for i in val_classes]).to(device)
+                                val_loss = nn.NLLLoss()(val_output, target)
                             else:
                                 val_loss += F.mse_loss(val_output, target)
                             # _, val_preds = torch.max(val_output, 1)
                             if args.eval == 'euclidean':    
                                 val_preds = torch.Tensor([torch.argmin(torch.norm(val_output[j]-torch.Tensor([leuven_mds_dict[i] for i in val_dataset.classes]).to(device), dim = 1)) for j in range(len(val_output))]).to(device)
                             elif args.eval == 'cosine':
-                                val_preds = torch.Tensor([torch.argmax(F.cosine_similarity(val_output[j].unsqueeze(0), torch.Tensor([leuven_mds_dict[i] for i in val_dataset.classes]).to(device), dim = 1)) for j in range(len(val_output))]).to(device)
+                                val_preds = torch.Tensor([torch.argmax(F.cosine_similarity(val_output[j].unsqueeze(0), torch.Tensor(np.array([leuven_mds_dict[i] for i in val_dataset.classes])).to(device), dim = 1)) for j in range(len(val_output))]).to(device)
                             else:
                                 raise ValueError('Invalid evaluation metric')
                             val_accuracy += torch.sum(val_preds == val_classes)
@@ -526,13 +533,16 @@ if __name__ == '__main__':
                                 negative_target = torch.tensor(np.array([leuven_mds_dict[list(train_dataset.class_to_idx.keys())[i]] for i in neg_classes])).to(device)
                                 triplet_loss = nn.TripletMarginLoss(margin=1.0, p=2)
                                 test_loss = triplet_loss(output, target, negative_target)
+                            elif (args.nll_loss==True):
+                                # batch_weights = torch.tensor([class_weights[i] for i in classes]).to(device)
+                                test_loss = nn.NLLLoss()(test_output, target)
                             else:
                                 test_loss += F.mse_loss(test_output, target)
                             # _, test_preds = torch.max(test_output, 1)
                             if args.eval == 'euclidean':
                                 test_preds = torch.Tensor([torch.argmin(torch.norm(test_output[j]-torch.Tensor([leuven_mds_dict[i] for i in test_dataset.classes]).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
                             elif args.eval == 'cosine':
-                                test_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output[j].unsqueeze(0), torch.Tensor([leuven_mds_dict[i] for i in test_dataset.classes]).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
+                                test_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output[j].unsqueeze(0), torch.Tensor(np.array([leuven_mds_dict[i] for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
                             else:
                                 raise ValueError('Invalid evaluation metric')
                             test_accuracy += torch.sum(test_preds == test_classes)
