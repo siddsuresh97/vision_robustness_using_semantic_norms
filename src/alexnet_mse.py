@@ -9,6 +9,7 @@ Implementation of AlexNet, from paper
 See: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
 """
 import os
+import json
 import random
 import numpy as np
 import pickle
@@ -20,6 +21,7 @@ import torch.nn.functional as F
 from torch.utils import data
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
+from src.models.alexnet import AlexNet
 # from tensorboardX import SummaryWriter
 
 # define pytorch device - useful for device-agnostic execution
@@ -111,92 +113,11 @@ CHECKPOINT_DIR = OUTPUT_DIR + '/models/{}'.format(args.exp_name)  # model checkp
 # make checkpoint path directory
 if not os.path.exists(CHECKPOINT_DIR):
     os.makedirs(CHECKPOINT_DIR)
-class_weights_dict = {'towel': 0.8943063698523465,
- 'bottle': 0.938717502504878,
- 'wasp': 1.1592674841911261,
- 'glass': 0.6620412899482667,
- 'kettle': 1.926358392762453,
- 'llama': 0.9956094723536584,
- 'spider': 0.8563806756405692,
- 'anvil': 4.752863589031587,
- 'iguana': 1.4186923187273857,
- 'car': 0.45732922956766586,
- 'violin': 0.9019050514262552,
- 'submarine': 1.483247648171448,
- 'beaver': 1.826089186610724,
- 'donkey': 1.2737674418604652,
- 'worm': 0.9302795923700026,
- 'hammer': 1.1518486883824461,
- 'bus': 1.0472411297866207,
- 'sieve': 2.279594816104907,
- 'cat': 0.3807361524920916,
- 'wheelbarrow': 2.6794460751110107,
- 'moth': 0.8588680883913925,
- 'jar': 1.4148134607130936,
- 'elephant': 0.868052880278153,
- 'mosquito': 1.1518486883824461,
- 'caterpillar': 0.9164808913098321,
- 'hedgehog': 2.5397203595377373,
- 'bumblebee': 2.5444033104158033,
- 'squirrel': 0.8554958020348237,
- 'snake': 0.8613699929351876,
- 'axe': 0.9670040144934622,
- 'sheep': 0.8794867614290444,
- 'wolf': 1.0708081184807325,
- 'guitar': 0.8711582883094511,
- 'ant': 0.1326968678413473,
- 'airplane': 0.8509237792490261,
- 'knife': 0.8927634647501642,
- 'shovel': 1.385920383678109,
- 'boat': 3.0350030689490555,
- 'toaster': 2.823836416129953,
- 'paintbrush': 3.4497868217054264,
- 'pig': 0.9847155532936517,
- 'monkey': 0.9070429855491918,
- 'lion': 0.7034399636442671,
- 'beetle': 0.8516239839634873,
- 'crowbar': 6.865247406378958,
- 'drum': 0.8586899369521908,
- 'whale': 0.8633460242015666,
- 'dolphin': 0.8709750023241135,
- 'cow': 0.8746554375758528,
- 'hovercraft': 2.7783518027157794,
- 'kangaroo': 1.0522989796762867,
- 'screwdriver': 2.430853896680277,
- 'bicycle': 0.8544363645090839,
- 'alligator': 1.3397230375555054,
- 'piano': 0.8761363356712194,
- 'horse': 0.6729103033235552,
- 'spoon': 1.3822184260589354,
- 'wrench': 1.3891759013578897,
- 'dog': 0.5103864117921972,
- 'tiger': 0.8647888418730962,
- 'plate': 1.4591978096744842,
- 'zebra': 0.951884154069099,
- 'earwig': 2.1371936943967533,
- 'tractor': 1.760095317196646,
- 'salamander': 1.0109265411590993,
- 'deer': 0.8604747840462506,
- 'train': 0.8868346585360993,
- 'crocodile': 1.3096311882462865,
- 'pan': 0.588115383725886,
- 'frog': 1.1837987377885364,
- 'gecko': 1.9362694976831205,
- 'lizard': 0.8560265066266567,
- 'truck': 0.8491782945736435,
- 'mouse': 0.802587085313399,
- 'turtle': 0.8565578700696279,
- 'shield': 2.2584529111001155,
- 'pliers': 1.43243743461817,
- 'bison': 1.175729675105513,
- 'bowl': 1.0023593670814799,
- 'rabbit': 1.4484759223395771,
- 'hamster': 1.3933841083966716,
- 'clarinet': 1.8605591847400051,
- 'cockroach': 1.3475729772286822,
- 'cymbals': 4.625412498375991,
- 'chameleon': 1.2932659125418655,
- 'helicopter': 1.388709891327243} 
+
+# read class weights from class_weights.json
+with open('vision_robustness_using_semantic_norms/class_weights.json') as f:
+    class_weights = json.load(f)
+    class_weights_dict = {k: v for k, v in class_weights.items()}
 
 # use wandb api key
 wandb.login(key='18a861e71f78135d23eb672c08922edbfcb8d364')
@@ -217,59 +138,6 @@ def weighted_mse_loss(input, target, weight):
     # import ipdb;ipdb.set_trace()
     return (weight.view(-1 ,1) * (input - target) ** 2).mean()
 
-class AlexNet(nn.Module):
-    def __init__(self, num_classes: int = 86, dropout: float = 0.5) -> None:
-        super().__init__()
-        # _log_api_usage_once(self)
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=3, stride=2),
-            nn.Conv2d(64, 192, kernel_size=5, padding=2),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=3, stride=2),
-            nn.Conv2d(192, 384, kernel_size=3, padding=1),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(384, 256, kernel_size=3, padding=1),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(256, 256, kernel_size=3, padding=1),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=3, stride=2),
-        )
-        self.avgpool = nn.AdaptiveAvgPool2d((6, 6))
-        if args.add_hidden_layers:
-            self.classifier = nn.Sequential(
-                nn.Dropout(p=dropout),
-                nn.Linear(256 * 6 * 6, 4096),
-                nn.ReLU(inplace=True),
-                nn.Dropout(p=dropout),
-                nn.Linear(4096, 4096),
-                nn.ReLU(inplace=True),
-                nn.Linear(4096, 2000),
-                nn.ReLU(inplace=True),
-                nn.Linear(2000, 500),
-                nn.ReLU(inplace=True),
-                nn.Linear(500, 100),
-                nn.ReLU(inplace=True),
-                nn.Linear(100, 6)
-            )
-        else:
-            self.classifier = nn.Sequential(
-                nn.Dropout(p=dropout),
-                nn.Linear(256 * 6 * 6, 4096),
-                nn.ReLU(inplace=True),
-                nn.Dropout(p=dropout),
-                nn.Linear(4096, 4096),
-                nn.ReLU(inplace=True),
-                nn.Linear(4096, num_classes),
-            )
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = self.features(x)
-        x = self.avgpool(x)
-        x = torch.flatten(x, 1)
-        x = self.classifier(x)
-        return x
 
 
 if __name__ == '__main__':
@@ -285,7 +153,7 @@ if __name__ == '__main__':
     # print('TensorboardX summary writer created')
 
     # create model
-    alexnet = AlexNet(num_classes=args.ndim).to(device)
+    alexnet = AlexNet(num_classes=args.ndim, add_hidden_layers=args.add_hidden_layers).to(device)
     # train on multiple GPUs
     alexnet = torch.nn.parallel.DataParallel(alexnet, device_ids=args.device_ids)
     print(alexnet)
@@ -461,8 +329,6 @@ if __name__ == '__main__':
                         accuracy = accuracy / len(classes)
                         print('Epoch: {} \tStep: {} \tLoss: {:.4f} \tAcc: {}'
                             .format(epoch + 1, total_steps, loss.item(), accuracy.item()))
-                        # tbwriter.add_scalar('loss', loss.item(), total_steps)
-                        # tbwriter.add_scalar('accuracy', accuracy.item(), total_steps)
                         wandb.log({'loss': loss.item(), 'accuracy': accuracy.item()}, step=total_steps)
 
                         # calculate the validation loss and accuracy
@@ -499,10 +365,6 @@ if __name__ == '__main__':
                             val_accuracy += torch.sum(val_preds == val_classes)
                         val_loss = val_loss.item()/len(val_dataloader)
                         val_accuracy = val_accuracy.item()/len(val_dataset)
-                        # print('Validation loss: {:.4f} \tValidation accuracy: {:.4f}'
-                        #     .format(val_loss, val_accuracy))
-                        # tbwriter.add_scalar('val_loss', val_loss, total_steps)
-                        # tbwriter.add_scalar('val_accuracy', val_accuracy, total_steps)
                         wandb.log({'val_loss': val_loss, 'val_accuracy': val_accuracy}, step=total_steps)
                         
                         # calculate the test loss and accuracy
@@ -539,38 +401,9 @@ if __name__ == '__main__':
                             test_accuracy += torch.sum(test_preds == test_classes)
                         test_loss = test_loss.item()/len(test_dataloader)
                         test_accuracy = test_accuracy.item()/len(test_dataset)
-                        # print('Test loss: {:.4f} \tTest accuracy: {:.4f}'
-                        #     .format(test_loss, test_accuracy))
-                        # tbwriter.add_scalar('test_loss', test_loss, total_steps)
-                        # tbwriter.add_scalar('test_accuracy', test_accuracy, total_steps)
                         wandb.log({'test_loss': test_loss, 'test_accuracy': test_accuracy})
                         print('Epoch: {} \tStep: {} \tTrain_Loss: {:.4f} \tTrain_Acc: {}\tValidation loss: {:.4f} \tValidation accuracy: {:.4f}\tTest loss: {:.4f} \tTest accuracy: {:.4f}'
                             .format(epoch + 1, total_steps, loss.item(), accuracy.item(), val_loss, val_accuracy, test_loss, test_accuracy))
-
-                # # print out gradient values and parameter average values
-                # # if total_steps % args.log_interval == 0:
-                # #     with torch.no_grad():
-                # #         # print and save the grad of the parameters
-                # #         # also print and save parameter values
-                # #         print('*' * 10)
-                #         for name, parameter in alexnet.named_parameters():
-                #             if parameter.grad is not None:
-                #                 avg_grad = torch.mean(parameter.grad)
-                #                 print('\t{} - grad_avg: {}'.format(name, avg_grad))
-                #                 # tbwriter.add_scalar('grad_avg/{}'.format(name), avg_grad.item(), total_steps)
-                #                 # tbwriter.add_histogram('grad/{}'.format(name),
-                #                 #         parameter.grad.cpu().numpy(), total_steps)
-                #                 wandb.log({'grad_avg/{}'.format(name): avg_grad.item()}, step = total_steps)
-                #                 wandb.log({'grad/{}'.format(name): wandb.Histogram(parameter.grad.cpu().numpy())}, step = total_steps)
-                #             if parameter.data is not None:
-                #                 avg_weight = torch.mean(parameter.data)
-                #                 print('\t{} - param_avg: {}'.format(name, avg_weight))
-                #                 # tbwriter.add_histogram('weight/{}'.format(name),
-                #                 #         parameter.data.cpu().numpy(), total_steps)
-                #                 # tbwriter.add_scalar('weight_avg/{}'.format(name), avg_weight.item(), total_steps)
-                #                 wandb.log({'weight/{}'.format(name): wandb.Histogram(parameter.data.cpu().numpy())}, step = total_steps)
-                #                 wandb.log({'weight_avg/{}'.format(name): avg_weight.item()}, step = total_steps)
-
                 total_steps += 1
             if args.switch_on_lr_decay:
                 print('lr scheduler on') 
