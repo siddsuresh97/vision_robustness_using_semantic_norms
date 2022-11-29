@@ -21,11 +21,11 @@ def get_model_checkpoint(experiment_name, epoch, model_name, checkpoint_dir):
 
 
 #load the checkpoint from a particular epoch
-def load_checkpoint(model, epoch, checkpoint_dir):
+def load_checkpoint(model, epoch, checkpoint_dir, device_id):
     checkpoint_path = os.path.join(checkpoint_dir, 'alexnet_states_e{}.pkl'.format(epoch))
     if os.path.exists(checkpoint_path):
         print('Loading checkpoint from {}'.format(checkpoint_path))
-        checkpoint = torch.load(checkpoint_path)
+        checkpoint = torch.load(checkpoint_path, map_location="cuda:{}".format(device_id))
         model.load_state_dict(checkpoint['model'], strict=False)
     else:
         print('Wrong checkpoint path: {}'.format(checkpoint_path))
