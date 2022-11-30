@@ -283,7 +283,7 @@ if __name__ == '__main__':
                         print('Epoch: {} \tStep: {} \tLoss: {:.4f}'
                             .format(epoch + 1, total_steps, loss.item()))
                         wandb.log({'loss': loss.item()}, step=total_steps)
-                        train_metrics = calculate_metrics(target = target.cpu().numpy(), pred = output.cpu().numpy(), threshold = 0.5)
+                        train_metrics = calculate_metrics(target = target.cpu().numpy(), pred = output.cpu().numpy(), dataset_type = 'train_batch', threshold = 0.5)
                         wandb.log(train_metrics, step=total_steps)
                         # calculate the validation loss and accuracy
                         val_loss = 0
@@ -311,7 +311,7 @@ if __name__ == '__main__':
                         val_loss = val_loss.item()/len(val_dataloader)
                         # val_accuracy = val_accuracy.item()/len(val_dataset)
                         # import ipdb;ipdb.set_trace()
-                        val_metrics = calculate_metrics(target = np.concatenate(val_targets), pred = np.concatenate(val_preds), threshold = 0.5)
+                        val_metrics = calculate_metrics(target = np.concatenate(val_targets), pred = np.concatenate(val_preds), dataset_type = 'val', threshold = 0.5)
                         wandb.log(val_metrics, step=total_steps)
                         wandb.log({'val_loss': val_loss}, step=total_steps)
                         
@@ -340,8 +340,8 @@ if __name__ == '__main__':
                             test_preds.append(test_output.cpu().numpy())
                         test_loss = test_loss.item()/len(test_dataloader)
                         # test_accuracy = test_accuracy.item()/len(test_dataset)
-                        val_metrics = calculate_metrics(target = np.concatenate(test_targets), pred = np.concatenate(test_preds), threshold = 0.5)
-                        wandb.log(val_metrics, step=total_steps)
+                        test_metrics = calculate_metrics(target = np.concatenate(test_targets), pred = np.concatenate(test_preds), dataset_type = 'test', threshold = 0.5)
+                        wandb.log(test_metrics, step=total_steps)
                         wandb.log({'test_loss': test_loss}, step=total_steps)
                         print('Epoch: {} \tStep: {} \tTrain_Loss: {:.4f} \tValidation loss: {:.4f} \tTest loss: {:.4f}'
                             .format(epoch + 1, total_steps, loss.item(), val_loss, test_loss))
