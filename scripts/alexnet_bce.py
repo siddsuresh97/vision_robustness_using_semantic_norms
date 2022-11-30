@@ -125,7 +125,7 @@ with open('vision_robustness_using_semantic_norms/class_weights.json') as f:
 wandb.login(key='18a861e71f78135d23eb672c08922edbfcb8d364')
 # start a wandb run
 id = wandb.util.generate_id()
-wandb.init(id = id, resume = "allow", project="semantic-norms-alexnet", entity="siddsuresh97", settings=wandb.Settings(code_dir="vision_robustness_using_semantic_norms/src/alexnet_mse.py"))
+wandb.init(id = id, resume = "allow", project="alexnet_bce", entity="siddsuresh97", settings=wandb.Settings(code_dir="vision_robustness_using_semantic_norms/src/alexnet_mse.py"))
 config = wandb.config
 
 #name the wandb run
@@ -279,16 +279,19 @@ if __name__ == '__main__':
                         #     raise ValueError('Invalid evaluation metric')
                         # accuracy = torch.sum(preds == classes.to(device))
                         # accuracy = accuracy / len(classes)
-
-                        print('Epoch: {} \tStep: {} \tLoss: {:.4f}'
-                            .format(epoch + 1, total_steps, loss.item()))
-                        wandb.log({'loss': loss.item()}, step=total_steps)
-                        train_metrics = calculate_metrics(target = target.cpu().numpy(), pred = output.cpu().numpy(), dataset_type = 'train_batch', threshold = 0.5)
+                        train_metrics = calculate_metrics(target = target.cpu().numpy(), pred = output.cpu().numpy(), dataset_type = 'train_batch', total_steps = total_steps, log_interval = args.log_interval, threshold = 0.5)
+                        train_class_pred = torch.Tensor([torch.argmax(F.cosine_similarity(output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in train_dataset.classes])).to(device), dim = 1)) for j in range(len(output))]).to(device) 
+                        accuracy = torch.sum(train_class_pred == classes.to(device))
+                        accuracy = accuracy / len(classes)
                         wandb.log(train_metrics, step=total_steps)
+                        wandb.log({'loss/train_batch_loss': loss.item(), 'accuracy/train_batch_accuracy': accuracy.item()}, step=total_steps)
+                        print('Epoch: {} \tStep: {} \tLoss: {:.4f} \tAcc: {}'
+                            .format(epoch + 1, total_steps, loss.item(), accuracy.item()))
                         # calculate the validation loss and accuracy
                         val_loss = 0
                         val_targets = []
                         val_preds = []
+                        val_accuracy = 0
                         for val_imgs, val_classes in val_dataloader:
                             val_imgs, val_classes = val_imgs.to(device), val_classes.to(device)
                             val_output = alexnet(val_imgs).sigmoid()
@@ -306,19 +309,22 @@ if __name__ == '__main__':
                             # else:
                             #     raise ValueError('Invalid evaluation metric')
                             # val_accuracy += torch.sum(val_preds == val_classes)
+                            val_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(val_output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in val_dataset.classes])).to(device), dim = 1)) for j in range(len(val_output))]).to(device)
+                            val_accuracy += torch.sum(val_class_preds == val_classes)
                             val_targets.append(target.cpu().numpy())
                             val_preds.append(val_output.cpu().numpy())
                         val_loss = val_loss.item()/len(val_dataloader)
-                        # val_accuracy = val_accuracy.item()/len(val_dataset)
+                        val_accuracy = val_accuracy.item()/len(val_dataset)
                         # import ipdb;ipdb.set_trace()
-                        val_metrics = calculate_metrics(target = np.concatenate(val_targets), pred = np.concatenate(val_preds), dataset_type = 'val', threshold = 0.5)
+                        val_metrics = calculate_metrics(target = np.concatenate(val_targets), pred = np.concatenate(val_preds), dataset_type = 'val', total_steps = total_steps, log_interval = args.log_interval, threshold = 0.5)
                         wandb.log(val_metrics, step=total_steps)
-                        wandb.log({'val_loss': val_loss}, step=total_steps)
+                        wandb.log({'loss/val_loss': val_loss, 'accuracy/val_accuracy': val_accuracy}, step=total_steps)
                         
                         # calculate the test loss and accuracy
                         test_loss = 0
                         test_targets = []
                         test_preds = []
+                        test_accuracy = 0
                         for test_imgs, test_classes in test_dataloader:
                             test_imgs, test_classes = test_imgs.to(device), test_classes.to(device)
                             test_output = alexnet(test_imgs).sigmoid()
@@ -336,15 +342,17 @@ if __name__ == '__main__':
                             # else:
                             #     raise ValueError('Invalid evaluation metric')
                             # test_accuracy += torch.sum(test_preds == test_classes)
+                            test_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
+                            test_accuracy += torch.sum(test_class_preds == test_classes)
                             test_targets.append(target.cpu().numpy())
                             test_preds.append(test_output.cpu().numpy())
                         test_loss = test_loss.item()/len(test_dataloader)
-                        # test_accuracy = test_accuracy.item()/len(test_dataset)
-                        test_metrics = calculate_metrics(target = np.concatenate(test_targets), pred = np.concatenate(test_preds), dataset_type = 'test', threshold = 0.5)
+                        test_accuracy = test_accuracy.item()/len(test_dataset)
+                        test_metrics = calculate_metrics(target = np.concatenate(test_targets), pred = np.concatenate(test_preds), dataset_type = 'test', total_steps = total_steps, log_interval = args.log_interval,threshold = 0.5)
                         wandb.log(test_metrics, step=total_steps)
-                        wandb.log({'test_loss': test_loss}, step=total_steps)
-                        print('Epoch: {} \tStep: {} \tTrain_Loss: {:.4f} \tValidation loss: {:.4f} \tTest loss: {:.4f}'
-                            .format(epoch + 1, total_steps, loss.item(), val_loss, test_loss))
+                        wandb.log({'loss/test_loss': test_loss, 'accuracy/test_accuracy': test_accuracy})
+                        print('Epoch: {} \tStep: {} \tTrain_Loss: {:.4f} \tTrain_Acc: {}\tValidation loss: {:.4f} \tValidation accuracy: {:.4f}\tTest loss: {:.4f} \tTest accuracy: {:.4f}'
+                            .format(epoch + 1, total_steps, loss.item(), accuracy.item(), val_loss, val_accuracy, test_loss, test_accuracy))
                         # print(classification_report(test_targets, test_preds, target_names = leuven_bce_transposed.index))
                 total_steps += 1
             if args.switch_on_lr_decay:
