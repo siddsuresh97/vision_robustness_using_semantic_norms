@@ -28,6 +28,7 @@ import torchvision.datasets as datasets
 from torchvision import models
 import torchvision.transforms as transforms
 from src.models.alexnet import AlexNet
+from src.utils.data_loading import *
 # from tensorboardX import SummaryWriter
 
 # define pytorch device - useful for device-agnostic execution
@@ -101,7 +102,6 @@ parser.add_argument('--eval', type = str, default = 'euclidean')
 parser.add_argument('--add_hidden_layers', action='store_true')
 parser.add_argument('--triplet_loss', action='store_true')
 parser.add_argument('--pre-trained', action='store_true')
-
 
 args = parser.parse_args()
 # parse command line arguments
@@ -195,62 +195,18 @@ if __name__ == '__main__':
     print('AlexNet created')
 
     # create dataset and data loader
-    train_dataset = datasets.ImageFolder(args.train_img_dir, transforms.Compose([
-        # transforms.RandomResizedCrop(IMAGE_DIM, scale=(0.9, 1.0), ratio=(0.9, 1.1)),
-        transforms.CenterCrop(IMAGE_DIM),
-        # transforms.RandomHorizontalFlip(),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
-    ]))
-    print('Dataset created')
-    train_dataloader = data.DataLoader(
-        train_dataset,
-        shuffle=True,
-        pin_memory=True,
-        num_workers=8,
-        drop_last=True,
-        batch_size=args.batch_size)
-    print('Dataloader created')
-    debug_set = torch.utils.data.Subset(train_dataset, list(range(1, args.batch_size*100)))
-    debug_data_loader = data.DataLoader(
-        debug_set,
-        shuffle=True,
-        pin_memory=True,
-        num_workers=8,
-        drop_last=True,
-        batch_size=args.batch_size)
-    print('Debug dataloader created')
-    # add code to load validation data and create validation dataloader
-    val_dataset = datasets.ImageFolder(args.validation_img_dir, transforms.Compose([
-        transforms.CenterCrop(IMAGE_DIM),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
-    ]))
-    print('Validation dataset created')
-    val_dataloader = data.DataLoader(
-        val_dataset,
-        shuffle=False,
-        pin_memory=True,
-        num_workers=8,
-        drop_last=True,
-        batch_size=args.batch_size)
-    print('Validation dataloader created')
+    train_dataset, val_dataset, test_dataset, debug_dataset = get_train_test_valid_debug_dataset(IMAGE_DIM = IMAGE_DIM, 
+                                                                                                                train_img_dir=args.train_img_dir,
+                                                                                                                validation_img_dir=args.validation_img_dir,
+                                                                                                                test_img_dir=args.test_img_dir, 
+                                                                                                                batch_size=args.batch_size)
 
-    # add code to load test data and create test dataloader
-    test_dataset = datasets.ImageFolder(args.test_img_dir, transforms.Compose([
-        transforms.CenterCrop(IMAGE_DIM),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
-    ]))
-    print('Test dataset created')
-    test_dataloader = data.DataLoader(
-        test_dataset,
-        shuffle=False,
-        pin_memory=True,
-        num_workers=8,
-        drop_last=True,
-        batch_size=args.batch_size)
-    print('Test dataloader created')
+    train_dataloader, val_dataloader, test_dataloader, debug_data_loader = get_train_test_valid_debug_dataloader(train_dataset, 
+                                                                                                                    val_dataset, 
+                                                                                                                    test_dataset, 
+                                                                                                                    debug_dataset, 
+                                                                                                                    batch_size = args.batch_size)
+    
 
     # use class weights from class weights dictionary by using the class indices and idx2class
     class_weights = [0]*NUM_CLASSES
