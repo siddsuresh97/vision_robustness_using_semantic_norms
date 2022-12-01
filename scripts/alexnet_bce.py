@@ -23,6 +23,7 @@ from sklearn.metrics import classification_report
 from src.utils.data_loading import *
 from src.models.alexnet import AlexNet
 from src.utils.metrics import calculate_metrics
+from torchvision import models
 # from tensorboardX import SummaryWriter
 
 # define pytorch device - useful for device-agnostic execution
@@ -92,6 +93,7 @@ parser.add_argument('--resume_training', action='store_true')
 parser.add_argument('--run_id', type = str, default = None)
 parser.add_argument('--eval', type = str, default = 'euclidean')
 parser.add_argument('--add_hidden_layers', action='store_true')
+parser.add_argument('--pre-trained', action='store_true')
 
 
 args = parser.parse_args()
@@ -159,8 +161,25 @@ if __name__ == '__main__':
     # print('TensorboardX summary writer created')
 
     # create model
-    alexnet = AlexNet(num_classes=args.ndim, add_hidden_layers=args.add_hidden_layers).to(device)
-    # train on multiple GPUs
+
+    if args.pre_trained:
+        alexnet = models.alexnet(pretrained=True)
+        print('Loaded pre-trained alexnet model')
+        # change the last layer to have 86 output classes
+        alexnet.classifier[6] = nn.Linear(4096, args.ndim)
+        print('Changed the last layer to have {} output shape'.format(args.ndim))
+        # freeze all the layers except the last layer
+        for param in alexnet.parameters():
+            param.requires_grad = False
+        for param in alexnet.classifier[6].parameters():
+            param.requires_grad = True
+        # add tanh activation to the last layer
+        # alexnet = alexnet.to(device)
+        print('Freezed all the layers except the last layer')
+        
+    else:
+        alexnet = AlexNet(num_classes=args.ndim, add_hidden_layers=args.add_hidden_layers)
+    alexnet = alexnet.to(device)
     alexnet = torch.nn.parallel.DataParallel(alexnet, device_ids=args.device_ids)
     print(alexnet)
     print('AlexNet created')
