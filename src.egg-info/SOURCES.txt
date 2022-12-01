@@ -1,8 +1,7 @@
 README.md
 setup.py
 src/__init__.py
-src/alexnet.py
-src/alexnet_mse.py
+src/alexnet_ce.py
 src/create_cluster_plot.py
 src/dataset_creation.py
 src/plotting.py

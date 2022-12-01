@@ -1,3 +1,4 @@
+from collections import Counter
 import torch
 from torch.utils import data
 import torchvision.datasets as datasets
@@ -52,7 +53,11 @@ def get_train_test_valid_debug_dataset(IMAGE_DIM, train_img_dir, validation_img_
         transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
     ]))
     print('train created')
-    debug_dataset = torch.utils.data.Subset(train_dataset, list(range(1, batch_size*100)))
+    debug_dataset = torch.utils.data.Subset(train_dataset, list(range(1, 2*batch_size*100)))
+    print('lenght of debug dataset is:', len(debug_dataset))
+    #import ipdb;ipdb.set_trace()
+    print('unique classes are:', len(dict(Counter(debug_dataset.dataset.targets))))
+    print(dict(Counter(debug_dataset.dataset.targets)))
     val_dataset = datasets.ImageFolder(validation_img_dir, transforms.Compose([
         transforms.CenterCrop(IMAGE_DIM),
         transforms.ToTensor(),

@@ -19,7 +19,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
-from sklearn.metrics import classification_report
+#from sklearn.metrics import classification_report
 from src.utils.data_loading import *
 from src.models.alexnet import AlexNet
 from src.utils.metrics import calculate_metrics
