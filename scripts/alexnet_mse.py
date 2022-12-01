@@ -11,6 +11,7 @@ See: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolu
 
 # hack to download pre-trained model weights
 import ssl
+import pandas as pd
 ssl._create_default_https_context = ssl._create_unverified_context
 import os
 import json
@@ -137,8 +138,9 @@ wandb.run.name = args.exp_name
 
 
 # load the leuven_mds_dict.pickle from the data directory
-with open('vision_robustness_using_semantic_norms/data/leuven_mds_dict.pickle', 'rb') as handle:
-    leuven_mds_dict = pickle.load(handle)
+# with open('vision_robustness_using_semantic_norms/data/leuven_mds_dict.pickle', 'rb') as handle:
+#     leuven_mds_dict = pickle.load(handle)
+leuven_mds_dict = pd.read_csv('vision_robustness_using_semantic_norms/data/leuven_mds_scaled.csv', index_col=0)
 
 def weighted_mse_loss(input, target, weight):
     # import ipdb;ipdb.set_trace()
