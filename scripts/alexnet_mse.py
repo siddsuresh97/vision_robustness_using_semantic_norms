@@ -102,6 +102,9 @@ parser.add_argument('--eval', type = str, default = 'euclidean')
 parser.add_argument('--add_hidden_layers', action='store_true')
 parser.add_argument('--triplet_loss', action='store_true')
 parser.add_argument('--pre-trained', action='store_true')
+parser.add_argument('--wandb_project_name', type=str, metavar='N',
+                    help='wandb')
+
 
 args = parser.parse_args()
 # parse command line arguments
