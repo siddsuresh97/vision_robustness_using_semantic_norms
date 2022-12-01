@@ -160,7 +160,7 @@ if __name__ == '__main__':
 
     # create model
     if args.pre_trained:
-        alexnet = models.alexnet(pretrained=True)
+        alexnet = models.alexnet(pretrained=True).to(device)
         print('Loaded pre-trained alexnet model')
         # change the last layer to have 86 output classes
         alexnet.classifier[6] = nn.Linear(4096, args.ndim)
