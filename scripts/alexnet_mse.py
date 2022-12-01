@@ -160,7 +160,7 @@ if __name__ == '__main__':
 
     # create model
     if args.pre_trained:
-        alexnet = models.alexnet(pretrained=True).to(device)
+        alexnet = models.alexnet(pretrained=True)
         print('Loaded pre-trained alexnet model')
         # change the last layer to have 86 output classes
         alexnet.classifier[6] = nn.Linear(4096, args.ndim)
@@ -170,6 +170,7 @@ if __name__ == '__main__':
             param.requires_grad = False
         for param in alexnet.classifier[6].parameters():
             param.requires_grad = True
+        alexnet = alexnet.to(device)
         print('Freezed all the layers except the last layer')
         
     else:
