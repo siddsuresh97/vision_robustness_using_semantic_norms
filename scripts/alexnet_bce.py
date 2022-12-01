@@ -168,14 +168,18 @@ if __name__ == '__main__':
         alexnet = models.alexnet(pretrained=True)
         print('Loaded pre-trained alexnet model')
         # change the last layer to have 86 output classes
-        alexnet.classifier[6] = nn.Linear(4096, args.ndim)
+        alexnet.classifier[6] = nn.Sequential(nn.Linear(4096, 3000),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(3000, 2600),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(2600, args.ndim), 
+)
         print('Changed the last layer to have {} output shape'.format(args.ndim))
         # freeze all the layers except the last layer
         for param in alexnet.parameters():
             param.requires_grad = False
         for param in alexnet.classifier[6].parameters():
             param.requires_grad = True
-        # add tanh activation to the last layer
         # alexnet = alexnet.to(device)
         print('Freezed all the layers except the last layer')
         
