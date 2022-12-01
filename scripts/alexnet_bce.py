@@ -102,15 +102,17 @@ args.train_img_dir = args.input_root_dir + '/train'
 args.validation_img_dir = args.input_root_dir + '/val'
 args.test_img_dir = args.input_root_dir + '/test'
 # parse command line arguments
-if args.alexnet_og_hyperparams == True:
-    print('using original alexnet hyperparameters')
-    args.lr = LR_INIT
-else:
-    print('using ADAM')
-    args.lr = 0.001
 
 if args.lr != None:
     args.lr = args.lr
+else:    
+    if args.alexnet_og_hyperparams == True:
+        print('using original alexnet hyperparameters')
+        args.lr = LR_INIT
+    else:
+        print('using ADAM')
+        args.lr = 0.001
+
 
 # LOG_DIR = '/staging/suresh27/tensorboard/leuven_ecoset' + '/weighted_cross_entropy'  # tensorboard logs
 CHECKPOINT_DIR = OUTPUT_DIR + '/models/{}'.format(args.exp_name)  # model checkpoints
