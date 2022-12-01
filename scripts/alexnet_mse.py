@@ -125,7 +125,7 @@ with open('vision_robustness_using_semantic_norms/class_weights.json') as f:
 wandb.login(key='18a861e71f78135d23eb672c08922edbfcb8d364')
 # start a wandb run
 id = wandb.util.generate_id()
-wandb.init(id = id, resume = "allow", project="semantic-norms-alexnet", entity="siddsuresh97", settings=wandb.Settings(code_dir="vision_robustness_using_semantic_norms/src/alexnet_mse.py"))
+wandb.init(id = id, resume = "allow", project="fine_tuned_alexnet", entity="siddsuresh97", settings=wandb.Settings(code_dir="vision_robustness_using_semantic_norms/src/alexnet_mse.py")) 
 config = wandb.config
 
 #name the wandb run
