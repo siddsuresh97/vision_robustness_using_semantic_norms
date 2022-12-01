@@ -170,9 +170,9 @@ if __name__ == '__main__':
         # change the last layer to have 86 output classes
         alexnet.classifier[6] = nn.Sequential(nn.Linear(4096, 3000),
                                                 nn.ReLU(inplace=True),
-                                                nn.Linear(3000, 2600),
+                                                nn.Linear(3000, 2500),
                                                 nn.ReLU(inplace=True),
-                                                nn.Linear(2600, args.ndim), 
+                                                nn.Linear(2500, args.ndim), 
 )
         print('Changed the last layer to have {} output shape'.format(args.ndim))
         # freeze all the layers except the last layer
