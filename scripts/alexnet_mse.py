@@ -172,11 +172,16 @@ if __name__ == '__main__':
             param.requires_grad = False
         for param in alexnet.classifier[6].parameters():
             param.requires_grad = True
+        # add tanh activation to the last layer
+        alexnet.classifier[6] = nn.Sequential(alexnet.classifier[6], nn.Tanh())
         alexnet = alexnet.to(device)
         print('Freezed all the layers except the last layer')
         
     else:
-        alexnet = AlexNet(num_classes=args.ndim, add_hidden_layers=args.add_hidden_layers).to(device)   
+        alexnet = AlexNet(num_classes=args.ndim, add_hidden_layers=args.add_hidden_layers)
+        # add tanh activation to the last layer
+        alexnet.classifier[6] = nn.Sequential(alexnet.classifier[6], nn.Tanh())
+        alexnet = alexnet.to(device)
     # train on multiple GPUs
     alexnet = torch.nn.parallel.DataParallel(alexnet, device_ids=args.device_ids)
     print(alexnet)
