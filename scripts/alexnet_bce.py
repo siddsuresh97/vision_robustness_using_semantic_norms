@@ -8,6 +8,8 @@ Implementation of AlexNet, from paper
 "ImageNet Classification with Deep Convolutional Neural Networks" by Alex Krizhevsky et al.
 See: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
 """
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 import os
 import json
 import pandas as pd
