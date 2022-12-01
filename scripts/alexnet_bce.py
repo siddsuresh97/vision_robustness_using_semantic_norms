@@ -288,7 +288,7 @@ if __name__ == '__main__':
                 # log the information and add to tensorboard
                 if total_steps % args.log_interval == 0:
                     with torch.no_grad():
-                        import ipdb;ipdb.set_trace()
+                        # import ipdb;ipdb.set_trace()
                         alexnet.eval()
                         output = alexnet(imgs).sigmoid()
                         # import ipdb; ipdb.set_trace()
