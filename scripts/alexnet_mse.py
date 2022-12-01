@@ -165,7 +165,14 @@ if __name__ == '__main__':
         alexnet = models.alexnet(pretrained=True)
         print('Loaded pre-trained alexnet model')
         # change the last layer to have 86 output classes
-        alexnet.classifier[6] = nn.Linear(4096, args.ndim)
+        alexnet.classifier[6] = nn.Sequential(nn.Linear(4096, 2000),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(2000, 500),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(500, 100),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(100, args.ndim), 
+                                                nn.Tanh())
         print('Changed the last layer to have {} output shape'.format(args.ndim))
         # freeze all the layers except the last layer
         for param in alexnet.parameters():
@@ -173,7 +180,7 @@ if __name__ == '__main__':
         for param in alexnet.classifier[6].parameters():
             param.requires_grad = True
         # add tanh activation to the last layer
-        alexnet.classifier[6] = nn.Sequential(alexnet.classifier[6], nn.Tanh())
+        # alexnet.classifier[6] = nn.Sequential(alexnet.classifier[6], nn.Tanh())
         alexnet = alexnet.to(device)
         print('Freezed all the layers except the last layer')
         
@@ -447,6 +454,6 @@ if __name__ == '__main__':
                 'wandb_id': wandb.run.id,
                 'lr_scheduler': lr_scheduler.state_dict()
             }
-            if not args.overfit:
-                torch.save(state, checkpoint_path)
+            # if not args.overfit:#
+            torch.save(state, checkpoint_path)
 
