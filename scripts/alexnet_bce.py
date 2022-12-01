@@ -115,7 +115,7 @@ else:
 
 
 # LOG_DIR = '/staging/suresh27/tensorboard/leuven_ecoset' + '/weighted_cross_entropy'  # tensorboard logs
-CHECKPOINT_DIR = OUTPUT_DIR + '/models/{}'.format(args.exp_name)  # model checkpoints
+CHECKPOINT_DIR = args.output_dir + '/models/{}'.format(args.exp_name)  # model checkpoints
 # make checkpoint path directory
 if not os.path.exists(CHECKPOINT_DIR):
     os.makedirs(CHECKPOINT_DIR)
