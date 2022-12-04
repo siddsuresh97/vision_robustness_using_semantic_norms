@@ -10,7 +10,7 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 # Uncomment and add input files that are in /home
-transfer_input_files = /home/suresh27/Projects/vision_robustness_using_semantic_norms, /staging/suresh27/ecoset_leuven.tar.gz
+transfer_input_files = /home/suresh27/Projects/vision_robustness_using_semantic_norms
 
 
 # Uncomment and add custom requirements

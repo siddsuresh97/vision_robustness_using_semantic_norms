@@ -55,4 +55,25 @@ def create_dataset(dataset_dir, new_dataset_dir, concepts, make_dataset = True):
                             os.makedirs(os.path.join(new_dataset_dir, split, concept))
                         for image in os.listdir(os.path.join(dataset_dir, split, class_name)):
                             shutil.copy(os.path.join(dataset_dir, split, class_name, image), os.path.join(new_dataset_dir, split, concept, image))
+
+def create_dataset_updated(dataset_dir, new_dataset_dir, concepts, make_dataset = True):
+    if make_dataset:
+        # create a new directory to store the dataset
+        if not os.path.exists(new_dataset_dir):
+            os.makedirs(new_dataset_dir)
+        
+        # create a dir called 'train', 'val' and 'test' in the new_dataset_dir
+        for split in ['train', 'val', 'test']:
+            if not os.path.exists(os.path.join(new_dataset_dir, split)):
+                os.makedirs(os.path.join(new_dataset_dir, split))
+            # for each split copy the images from concepts from dataset_dir to the new_dataset_dir
+            for concept in tqdm(concepts):
+                if not os.path.exists(os.path.join(new_dataset_dir, split, concept)):
+                    os.makedirs(os.path.join(new_dataset_dir, split, concept))
+                for class_name in os.listdir(os.path.join(dataset_dir, split)):
+                    if concept == class_name.split('_')[-1]:
+                        if not os.path.exists(os.path.join(new_dataset_dir, split, concept)):
+                            os.makedirs(os.path.join(new_dataset_dir, split, concept))
+                        for image in os.listdir(os.path.join(dataset_dir, split, class_name)):
+                            shutil.copy(os.path.join(dataset_dir, split, class_name, image), os.path.join(new_dataset_dir, split, concept, image))
                     

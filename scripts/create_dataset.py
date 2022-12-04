@@ -28,5 +28,8 @@ overlap_concepts = get_overlap_concepts()
 
 make_dataset = True
 dataset_dir = '/media/external/siddsuresh97/datasets/ecoset'
-new_dataset_dir = '/media/external/siddsuresh97/datasets/ecoset_leuven'
-create_dataset(dataset_dir, new_dataset_dir, overlap_concepts, make_dataset = True)
+# new_dataset_dir = '/media/external/siddsuresh97/datasets/ecoset_leuven'
+# create_dataset(dataset_dir, new_dataset_dir, overlap_concepts, make_dataset = True)
+
+new_dataset_dir = '/media/external/siddsuresh97/datasets/ecoset_leuven_updated'
+create_dataset_updated(dataset_dir, new_dataset_dir, overlap_concepts, make_dataset = True)

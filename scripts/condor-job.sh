@@ -17,7 +17,7 @@ pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 -f https://download.py
 # pip install deepspeed
 #pip install transformers
 
+cp /staging/suresh27/ecoset_leuven_updated.tar.gz .
 
-
-tar -xvf ecoset_leuven.tar.gz
+tar -xvf ecoset_leuven_updated.tar.gz
 sleep 7d
