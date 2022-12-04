@@ -40,9 +40,9 @@ NUM_CLASSES = 86  # 1000 classes for imagenet 2012 dataset
 DEVICE_IDS = [0, 1, 2, 3]  # GPUs to use
 # modify this to point to your data directory
 INPUT_ROOT_DIR = 'ecoset_leuven'
-TRAIN_IMG_DIR = 'ecoset_leuven/train'
-VALIDATION_IMG_DIR = 'ecoset_leuven/val'
-TEST_IMG_DIR = 'ecoset_leuven/test'
+TRAIN_IMG_DIR = INPUT_ROOT_DIR + '/train'
+VALIDATION_IMG_DIR = INPUT_ROOT_DIR + '/val'
+TEST_IMG_DIR = INPUT_ROOT_DIR + '/test'
 OUTPUT_DIR = 'alexnet_data_out'
 
 #python vision_robustness_using_semantic_norms/src/alexnet.py --exp_name=alexnet_1 --num_classes=86 --weighted_loss=False --alexnet_og_hyperparams=True --device_ids=0,1,2,3 
