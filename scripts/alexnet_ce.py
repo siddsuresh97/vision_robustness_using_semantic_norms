@@ -99,6 +99,9 @@ parser.add_argument('--wandb_project_name', type=str, metavar='N',
                     help='wandb')
 
 args = parser.parse_args()
+args.train_img_dir = args.input_root_dir + '/train'
+args.validation_img_dir = args.input_root_dir + '/val'
+args.test_img_dir = args.input_root_dir + '/test'
 # parse command line arguments
 if args.alexnet_og_hyperparams == True:
     print('using original alexnet hyperparameters')

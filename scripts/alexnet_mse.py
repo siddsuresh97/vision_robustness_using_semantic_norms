@@ -107,6 +107,9 @@ parser.add_argument('--wandb_project_name', type=str, metavar='N',
 
 
 args = parser.parse_args()
+args.train_img_dir = args.input_root_dir + '/train'
+args.validation_img_dir = args.input_root_dir + '/val'
+args.test_img_dir = args.input_root_dir + '/test'
 # parse command line arguments
 if args.alexnet_og_hyperparams == True:
     print('using original alexnet hyperparameters')
@@ -120,6 +123,7 @@ if args.lr != None:
 
 LOG_DIR = '/staging/suresh27/tensorboard/leuven_ecoset' + '/weighted_cross_entropy'  # tensorboard logs
 CHECKPOINT_DIR = args.output_dir + '/models/{}'.format(args.exp_name)  # model checkpoints
+OUTPUT_DIR = 'alexnet_data_out'
 # make checkpoint path directory
 if not os.path.exists(CHECKPOINT_DIR):
     os.makedirs(CHECKPOINT_DIR)
@@ -416,5 +420,3 @@ if __name__ == '__main__':
             # if not args.overfit:#
             torch.save(state, checkpoint_path)
 
-# tar a file in teh current directory
-!tar -czvf alexnet.tar.gz alexnet.py
