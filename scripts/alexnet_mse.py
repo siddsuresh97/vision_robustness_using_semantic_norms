@@ -416,3 +416,5 @@ if __name__ == '__main__':
             # if not args.overfit:#
             torch.save(state, checkpoint_path)
 
+# tar a file in teh current directory
+!tar -czvf alexnet.tar.gz alexnet.py
