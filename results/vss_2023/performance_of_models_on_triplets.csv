@@ -1,6 +1,6 @@
-,baseline_ce,bce,mse,human,note
-CC,0.43333333333333335,0.4666666666666667,0.5333333333333333,0.726300245775967,both from the same category as the head
-CD,0.36666666666666664,0.5333333333333333,0.5333333333333333,0.9066056764736582,one from the same category and one from a different category in the same domain
-CO,0.5333333333333333,0.4666666666666667,0.7333333333333333,0.9768188400978194,one from the same category and one from a different domain all together
-DD,0.55,0.5166666666666667,0.5166666666666667,0.7421773292639444,both from a different category in the same domain
-DO,0.5333333333333333,0.4,0.5,0.8906089946883432,one from a different category in the same domain and one from a different domain all together
+,baseline_ce,bce,mse,bce_v2,human,note
+CC,0.5,0.4666666666666667,0.5333333333333333,0.4666666666666667,0.726300245775967,both from the same category as the head
+CD,0.5,0.6333333333333333,0.5,0.4,0.9066056764736582,one from the same category and one from a different category in the same domain
+CO,0.4,0.7333333333333333,0.7,0.5666666666666667,0.9768188400978194,one from the same category and one from a different domain all together
+DD,0.48333333333333334,0.45,0.55,0.4166666666666667,0.7421773292639444,both from a different category in the same domain
+DO,0.5,0.36666666666666664,0.4666666666666667,0.43333333333333335,0.8906089946883432,one from a different category in the same domain and one from a different domain all together
