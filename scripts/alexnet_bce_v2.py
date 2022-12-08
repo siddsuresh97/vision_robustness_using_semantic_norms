@@ -209,6 +209,7 @@ if __name__ == '__main__':
                                                                                                                     debug_dataset, 
                                                                                                                     batch_size = args.batch_size)
     import ipdb;ipdb.set_trace()
+    print('hi')
     
     
 
