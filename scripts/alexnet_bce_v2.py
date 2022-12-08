@@ -311,14 +311,14 @@ if __name__ == '__main__':
                         #     raise ValueError('Invalid evaluation metric')
                         # accuracy = torch.sum(preds == classes.to(device))
                         # accuracy = accuracy / len(classes)
-                        train_metrics = calculate_metrics(target = target.cpu().numpy(), pred = output.cpu().numpy(), dataset_type = 'train_batch', total_steps = total_steps, log_interval = args.log_interval, threshold = 0.5)
+                        train_metrics = calculate_metrics(target = target.detach().cpu().numpy(), pred = output.detach().cpu().numpy(), dataset_type = 'train_batch', total_steps = total_steps, log_interval = args.log_interval, threshold = 0.5)
                         train_class_pred = torch.Tensor([torch.argmax(F.cosine_similarity(output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in train_dataset.classes])).to(device), dim = 1)) for j in range(len(output))]).to(device) 
                         accuracy = torch.sum(train_class_pred == classes.to(device))
                         accuracy = accuracy / len(classes)
                         wandb.log(train_metrics, step=total_steps)
-                        wandb.log({'loss/train_batch_loss': loss.item(), 'accuracy/train_batch_accuracy': accuracy.item()}, step=total_steps)
+                        wandb.log({'loss/train_batch_loss': loss.detach().item(), 'accuracy/train_batch_accuracy': accuracy.detach().item()}, step=total_steps)
                         print('Epoch: {} \tStep: {} \tLoss: {:.4f} \tAcc: {}'
-                            .format(epoch + 1, total_steps, loss.item(), accuracy.item()))
+                            .format(epoch + 1, total_steps, loss.detach().item(), accuracy.detach().item()))
                         # calculate the validation loss and accuracy
                         val_loss = 0
                         val_targets = []
@@ -343,10 +343,10 @@ if __name__ == '__main__':
                             # val_accuracy += torch.sum(val_preds == val_classes)
                             val_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(val_output.sigmoid()[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in val_dataset.classes])).to(device), dim = 1)) for j in range(len(val_output))]).to(device)
                             val_accuracy += torch.sum(val_class_preds == val_classes)
-                            val_targets.append(target.cpu().numpy())
-                            val_preds.append(val_output.cpu().numpy())
-                        val_loss = val_loss.item()/len(val_dataloader)
-                        val_accuracy = val_accuracy.item()/len(val_dataset)
+                            val_targets.append(target.detach().cpu().numpy())
+                            val_preds.append(val_output.detach().cpu().numpy())
+                        val_loss = val_loss.detach().item()/len(val_dataloader)
+                        val_accuracy = val_accuracy.detach().item()/len(val_dataset)
                         # import ipdb;ipdb.set_trace()
                         val_metrics = calculate_metrics(target = np.concatenate(val_targets), pred = np.concatenate(val_preds), dataset_type = 'val', total_steps = total_steps, log_interval = args.log_interval, threshold = 0.5)
                         wandb.log(val_metrics, step=total_steps)
@@ -376,15 +376,15 @@ if __name__ == '__main__':
                             # test_accuracy += torch.sum(test_preds == test_classes)
                             test_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output.sigmoid()[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
                             test_accuracy += torch.sum(test_class_preds == test_classes)
-                            test_targets.append(target.cpu().numpy())
-                            test_preds.append(test_output.cpu().numpy())
-                        test_loss = test_loss.item()/len(test_dataloader)
-                        test_accuracy = test_accuracy.item()/len(test_dataset)
+                            test_targets.append(target.detach().cpu().numpy())
+                            test_preds.append(test_output.detach().cpu().numpy())
+                        test_loss = test_loss.detach().item()/len(test_dataloader)
+                        test_accuracy = test_accuracy.detach().item()/len(test_dataset)
                         test_metrics = calculate_metrics(target = np.concatenate(test_targets), pred = np.concatenate(test_preds), dataset_type = 'test', total_steps = total_steps, log_interval = args.log_interval,threshold = 0.5)
                         wandb.log(test_metrics, step=total_steps)
                         wandb.log({'loss/test_loss': test_loss, 'accuracy/test_accuracy': test_accuracy})
                         print('Epoch: {} \tStep: {} \tTrain_Loss: {:.4f} \tTrain_Acc: {}\tValidation loss: {:.4f} \tValidation accuracy: {:.4f}\tTest loss: {:.4f} \tTest accuracy: {:.4f}'
-                            .format(epoch + 1, total_steps, loss.item(), accuracy.item(), val_loss, val_accuracy, test_loss, test_accuracy))
+                            .format(epoch + 1, total_steps, loss.detach().item(), accuracy.detach().item(), val_loss, val_accuracy, test_loss, test_accuracy))
                         # print(classification_report(test_targets, test_preds, target_names = leuven_bce_transposed.index))
                 total_steps += 1
             if args.switch_on_lr_decay:
