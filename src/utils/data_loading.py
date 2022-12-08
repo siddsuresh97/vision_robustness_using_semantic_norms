@@ -11,7 +11,8 @@ def get_train_test_valid_debug_dataloader(train_dataset, val_dataset, test_datas
         pin_memory=True,
         num_workers=16,
         drop_last=True,
-        batch_size=batch_size)
+        batch_size=batch_size, 
+        pin_memory = True)
     print('Dataloader created')
     debug_data_loader = data.DataLoader(
         debug_dataset,
@@ -19,7 +20,8 @@ def get_train_test_valid_debug_dataloader(train_dataset, val_dataset, test_datas
         pin_memory=True,
         num_workers=16,
         drop_last=True,
-        batch_size=batch_size)
+        batch_size=batch_size, 
+        pin_memory = True)
     print('Debug dataloader created')
         # add code to load validation data and create validation dataloader
     val_dataloader = data.DataLoader(
@@ -28,7 +30,8 @@ def get_train_test_valid_debug_dataloader(train_dataset, val_dataset, test_datas
         pin_memory=True,
         num_workers=8,
         drop_last=True,
-        batch_size=batch_size)
+        batch_size=batch_size,
+        pin_memory = True)
     print('Validation dataloader created')
 
 
@@ -39,7 +42,8 @@ def get_train_test_valid_debug_dataloader(train_dataset, val_dataset, test_datas
         pin_memory=True,
         num_workers=16,
         drop_last=True,
-        batch_size=batch_size)
+        batch_size=batch_size, 
+        pin_memory = True)
     print('Test dataloader created')
     return train_dataloader, val_dataloader, test_dataloader, debug_data_loader
 
