@@ -9,7 +9,7 @@ def get_train_test_valid_debug_dataloader(train_dataset, val_dataset, test_datas
         train_dataset,
         shuffle=True,
         pin_memory=True,
-        num_workers=8,
+        num_workers=16,
         drop_last=True,
         batch_size=batch_size)
     print('Dataloader created')
@@ -17,7 +17,7 @@ def get_train_test_valid_debug_dataloader(train_dataset, val_dataset, test_datas
         debug_dataset,
         shuffle=True,
         pin_memory=True,
-        num_workers=8,
+        num_workers=16,
         drop_last=True,
         batch_size=batch_size)
     print('Debug dataloader created')
@@ -37,7 +37,7 @@ def get_train_test_valid_debug_dataloader(train_dataset, val_dataset, test_datas
         test_dataset,
         shuffle=False,
         pin_memory=True,
-        num_workers=8,
+        num_workers=16,
         drop_last=True,
         batch_size=batch_size)
     print('Test dataloader created')

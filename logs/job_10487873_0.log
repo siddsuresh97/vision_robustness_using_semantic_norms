@@ -1,0 +1,86 @@
+000 (10487873.000.000) 2022-11-28 15:57:34 Job submitted from host: <128.104.101.92:9618?addrs=128.104.101.92-9618+[2607-f388-107c-501-a236-9fff-fe3c-caa8]-9618&alias=submit2.chtc.wisc.edu&noUDP&sock=schedd_6791_a3be>
+...
+040 (10487873.000.000) 2022-11-28 17:12:26 Started transferring input files
+	Transferring to host: <128.105.68.96:9618?addrs=128.105.68.96-9618+[2607-f388-2200-100-1270-fdff-fe74-8a8]-9618&alias=gpu2004.chtc.wisc.edu&noUDP&sock=slot1_3_2026745_f34a_77592>
+...
+040 (10487873.000.000) 2022-11-28 17:12:27 Finished transferring input files
+...
+001 (10487873.000.000) 2022-11-28 17:12:28 Job executing on host: <128.105.68.96:9618?addrs=128.105.68.96-9618+[2607-f388-2200-100-1270-fdff-fe74-8a8]-9618&alias=gpu2004.chtc.wisc.edu&noUDP&sock=startd_2302069_6f41>
+...
+006 (10487873.000.000) 2022-11-28 17:12:37 Image size of job updated: 122368
+	1  -  MemoryUsage of job (MB)
+	668  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-28 17:17:38 Image size of job updated: 122368
+	1  -  MemoryUsage of job (MB)
+	752  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-28 17:27:39 Image size of job updated: 122368
+	1  -  MemoryUsage of job (MB)
+	764  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-28 17:37:39 Image size of job updated: 122368
+	1  -  MemoryUsage of job (MB)
+	768  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-28 22:58:13 Image size of job updated: 122368
+	3  -  MemoryUsage of job (MB)
+	2512  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-29 14:34:49 Image size of job updated: 122368
+	4  -  MemoryUsage of job (MB)
+	3184  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-29 14:39:50 Image size of job updated: 137248
+	4  -  MemoryUsage of job (MB)
+	3200  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-29 14:44:51 Image size of job updated: 12092372
+	3721  -  MemoryUsage of job (MB)
+	3809572  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-29 14:49:51 Image size of job updated: 12092372
+	5214  -  MemoryUsage of job (MB)
+	5338748  -  ResidentSetSize of job (KB)
+...
+006 (10487873.000.000) 2022-11-29 14:54:51 Image size of job updated: 12272300
+	5246  -  MemoryUsage of job (MB)
+	5371048  -  ResidentSetSize of job (KB)
+...
+004 (10487873.000.000) 2022-11-30 00:43:30 Job was evicted.
+	(0) CPU times
+		Usr 0 01:55:27, Sys 0 00:22:35  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	194966608  -  Run Bytes Received By Job
+	Partitionable Resources :     Usage    Request  Allocated Assigned
+	   Cpus                 :         0          1          1 
+	   Disk (KB)            : 236396240 1048576000 1054958198 
+	   Gpus (Average)       :                    1          1 "GPU-31f81b3b"
+	   IoHeavy              :                               0 
+	   Memory (MB)          :      5246     133120     133120 
+...
+040 (10487873.000.000) 2022-11-30 00:50:59 Started transferring input files
+	Transferring to host: <128.105.68.96:9618?addrs=128.105.68.96-9618+[2607-f388-2200-100-1270-fdff-fe74-8a8]-9618&alias=gpu2004.chtc.wisc.edu&noUDP&sock=slot1_1_1198593_f2bd_32>
+...
+040 (10487873.000.000) 2022-11-30 00:50:59 Finished transferring input files
+...
+001 (10487873.000.000) 2022-11-30 00:51:00 Job executing on host: <128.105.68.96:9618?addrs=128.105.68.96-9618+[2607-f388-2200-100-1270-fdff-fe74-8a8]-9618&alias=gpu2004.chtc.wisc.edu&noUDP&sock=startd_2302069_6f41>
+...
+004 (10487873.000.000) 2022-11-30 02:28:03 Job was evicted.
+	(0) CPU times
+		Usr 0 00:03:20, Sys 0 00:03:39  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	194971632  -  Run Bytes Received By Job
+	Partitionable Resources :     Usage    Request  Allocated Assigned
+	   Cpus                 :         0          1          1 
+	   Disk (KB)            : 235910438 1048576000 1054958198 
+	   Gpus (Average)       :         0          1          1 "GPU-9889ee48"
+	   GpusMemory (MB)      :       820                       
+	   IoHeavy              :                               0 
+	   Memory (MB)          :      7325     133120     133120 
+...
+009 (10487873.000.000) 2022-11-30 02:28:03 Job was aborted.
+	via condor_rm (by user suresh27)
+...

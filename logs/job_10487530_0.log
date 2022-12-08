@@ -1,0 +1,155 @@
+000 (10487530.000.000) 2022-11-28 10:46:58 Job submitted from host: <128.104.101.92:9618?addrs=128.104.101.92-9618+[2607-f388-107c-501-a236-9fff-fe3c-caa8]-9618&alias=submit2.chtc.wisc.edu&noUDP&sock=schedd_6791_a3be>
+...
+040 (10487530.000.000) 2022-11-30 00:20:04 Started transferring input files
+	Transferring to host: <128.105.68.103:9618?addrs=128.105.68.103-9618+[2607-f388-2200-100-1270-fdff-fe74-930]-9618&alias=gpu2011.chtc.wisc.edu&noUDP&sock=slot1_1_2641918_fae2_32>
+...
+040 (10487530.000.000) 2022-11-30 00:20:05 Finished transferring input files
+...
+001 (10487530.000.000) 2022-11-30 00:20:06 Job executing on host: <128.105.68.103:9618?addrs=128.105.68.103-9618+[2607-f388-2200-100-1270-fdff-fe74-930]-9618&alias=gpu2011.chtc.wisc.edu&noUDP&sock=startd_3750240_4971>
+...
+006 (10487530.000.000) 2022-11-30 00:20:15 Image size of job updated: 61500
+	1  -  MemoryUsage of job (MB)
+	672  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 00:25:17 Image size of job updated: 62112
+	1  -  MemoryUsage of job (MB)
+	748  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 00:35:18 Image size of job updated: 62112
+	1  -  MemoryUsage of job (MB)
+	760  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 00:45:19 Image size of job updated: 62112
+	1  -  MemoryUsage of job (MB)
+	764  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 01:10:21 Image size of job updated: 64368
+	1  -  MemoryUsage of job (MB)
+	764  -  ResidentSetSize of job (KB)
+...
+004 (10487530.000.000) 2022-11-30 14:28:01 Job was evicted.
+	(0) CPU times
+		Usr 0 00:03:27, Sys 0 00:03:52  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	194969392  -  Run Bytes Received By Job
+	Partitionable Resources :     Usage    Request  Allocated Assigned
+	   Cpus                 :         0          1          1 
+	   Disk (KB)            : 235910436 1048576000 1055662836 
+	   Gpus (Average)       :         0          4          4 "GPU-ab7faecb,GPU-213cebfb,GPU-e8e49ede,GPU-d1034b45"
+	   GpusMemory (MB)      :       820                       
+	   IoHeavy              :                               0 
+	   Memory (MB)          :         1     133120     133120 
+...
+040 (10487530.000.000) 2022-11-30 14:28:41 Started transferring input files
+	Transferring to host: <128.105.68.100:9618?addrs=128.105.68.100-9618+[2607-f388-2200-100-ac0-ebff-fe99-9a48]-9618&alias=gpu2008.chtc.wisc.edu&noUDP&sock=slot1_1_2729990_abdf_29>
+...
+040 (10487530.000.000) 2022-11-30 14:28:43 Finished transferring input files
+...
+001 (10487530.000.000) 2022-11-30 14:28:44 Job executing on host: <128.105.68.100:9618?addrs=128.105.68.100-9618+[2607-f388-2200-100-ac0-ebff-fe99-9a48]-9618&alias=gpu2008.chtc.wisc.edu&noUDP&sock=startd_2729931_2db5>
+...
+006 (10487530.000.000) 2022-11-30 16:04:05 Image size of job updated: 75000
+	5  -  MemoryUsage of job (MB)
+	4444  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 16:09:05 Image size of job updated: 75000
+	5  -  MemoryUsage of job (MB)
+	4476  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 22:24:46 Image size of job updated: 75000
+	6  -  MemoryUsage of job (MB)
+	5656  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 22:34:47 Image size of job updated: 75000
+	6  -  MemoryUsage of job (MB)
+	5660  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 22:39:47 Image size of job updated: 75000
+	9  -  MemoryUsage of job (MB)
+	8960  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 22:54:48 Image size of job updated: 1485368
+	593  -  MemoryUsage of job (MB)
+	607192  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 22:59:49 Image size of job updated: 1487668
+	593  -  MemoryUsage of job (MB)
+	607192  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 23:04:50 Image size of job updated: 9434152
+	593  -  MemoryUsage of job (MB)
+	607192  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 23:09:50 Image size of job updated: 13875896
+	593  -  MemoryUsage of job (MB)
+	607192  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 23:14:51 Image size of job updated: 33102876
+	17140  -  MemoryUsage of job (MB)
+	17550448  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 23:19:51 Image size of job updated: 36267116
+	17177  -  MemoryUsage of job (MB)
+	17588784  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 23:24:51 Image size of job updated: 36267116
+	17693  -  MemoryUsage of job (MB)
+	18117572  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 23:29:52 Image size of job updated: 37399068
+	17913  -  MemoryUsage of job (MB)
+	18342868  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 23:34:53 Image size of job updated: 64108848
+	32107  -  MemoryUsage of job (MB)
+	32877556  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-11-30 23:39:53 Image size of job updated: 71146204
+	34891  -  MemoryUsage of job (MB)
+	35728248  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-12-01 02:50:11 Image size of job updated: 79694388
+	34891  -  MemoryUsage of job (MB)
+	35728248  -  ResidentSetSize of job (KB)
+...
+004 (10487530.000.000) 2022-12-01 16:31:29 Job was evicted.
+	(0) CPU times
+		Usr 4 12:27:18, Sys 0 17:15:13  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	194975440  -  Run Bytes Received By Job
+	Partitionable Resources :        Usage    Request  Allocated Assigned
+	   Cpus                 :         6.65          1          1 
+	   Disk (KB)            : 357055383    1048576000 1049988278 
+	   Gpus (Average)       :         0             4          4 "GPU-053b14fc,GPU-1f9fc54e,GPU-ff708371,GPU-7067f38b"
+	   GpusMemory (MB)      :     13330                          
+	   IoHeavy              :                                  0 
+	   Memory (MB)          :     34891        133120     133120 
+...
+040 (10487530.000.000) 2022-12-01 16:31:52 Started transferring input files
+	Transferring to host: <128.105.68.98:9618?addrs=128.105.68.98-9618+[2607-f388-2200-100-1270-fdff-fe74-900]-9618&alias=gpu2006.chtc.wisc.edu&noUDP&sock=slot1_1_982669_f4f1_29>
+...
+040 (10487530.000.000) 2022-12-01 16:31:53 Finished transferring input files
+...
+001 (10487530.000.000) 2022-12-01 16:31:54 Job executing on host: <128.105.68.98:9618?addrs=128.105.68.98-9618+[2607-f388-2200-100-1270-fdff-fe74-900]-9618&alias=gpu2006.chtc.wisc.edu&noUDP&sock=startd_982613_5dc1>
+...
+006 (10487530.000.000) 2022-12-04 02:07:47 Image size of job updated: 116355692
+	40824  -  MemoryUsage of job (MB)
+	41802804  -  ResidentSetSize of job (KB)
+...
+006 (10487530.000.000) 2022-12-04 02:12:48 Image size of job updated: 118980904
+	41229  -  MemoryUsage of job (MB)
+	42218200  -  ResidentSetSize of job (KB)
+...
+007 (10487530.000.000) 2022-12-05 13:34:56 Shadow exception!
+	Error from slot1_1@gpu2006.chtc.wisc.edu: Job failed to complete in 72 hrs
+	0  -  Run Bytes Sent By Job
+	194980768  -  Run Bytes Received By Job
+...
+012 (10487530.000.000) 2022-12-05 13:34:56 Job was held.
+	Error from slot1_1@gpu2006.chtc.wisc.edu: Job failed to complete in 72 hrs
+	Code 21 Subcode 0
+...
+009 (10487530.000.000) 2022-12-05 19:43:38 Job was aborted.
+	via condor_rm (by user suresh27)
+...

@@ -15,14 +15,15 @@ transfer_input_files = /home/suresh27/Projects/vision_robustness_using_semantic_
 
 # Uncomment and add custom requirements
 # requirements =
-require_gpus = (GlobalMemoryMb >= 50000)
+require_gpus =  (Capability > 7.5)
 
 +WantGPULab = true
 +GPUJobLength = "long"
++Is_resumable = true
 
-request_gpus = 4
-request_cpus = 1
+request_gpus = 2
+request_cpus = 16
 request_memory = 130GB
-request_disk = 1000GB
+request_disk = 500GB
 
 queue 1
