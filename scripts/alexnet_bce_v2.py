@@ -277,10 +277,10 @@ if __name__ == '__main__':
                 imgs, classes = imgs.to(device), classes
                 target = torch.tensor(np.array([leuven_bce_transposed[list(train_dataset.class_to_idx.keys())[i]].to_numpy() for i in classes])).to(device)
                 # calculate the loss
-                output = alexnet(imgs).sigmoid()
+                output = alexnet(imgs)
                 if args.weighted_loss==True: 
                     batch_weights = torch.tensor([class_weights[i] for i in classes]).to(device)
-                    loss = nn.BCELoss(weight = batch_weights)(output, target.to(torch.float32))
+                    loss = nn.BCEWithLogitsLoss(weight = batch_weights)(output, target.to(torch.float32))
                 else:
                     # print('using unweighted loss', args.weighted_loss)
                     loss = nn.BCELoss()(output, target.to(torch.float32))
@@ -326,11 +326,11 @@ if __name__ == '__main__':
                         val_accuracy = 0
                         for val_imgs, val_classes in val_dataloader:
                             val_imgs, val_classes = val_imgs.to(device), val_classes.to(device)
-                            val_output = alexnet(val_imgs).sigmoid()
+                            val_output = alexnet(val_imgs)
                             target = torch.Tensor(np.array([leuven_bce_transposed[list(val_dataset.class_to_idx.keys())[i]].to_numpy() for i in val_classes])).to(device)
                             if args.weighted_loss==True:
                                 batch_weights = torch.tensor([class_weights[i] for i in val_classes]).to(device)
-                                val_loss += nn.BCELoss(weight = batch_weights)(val_output, target.to(torch.float32))
+                                val_loss += nn.BCEWithLogitsLoss(weight = batch_weights)(val_output, target.to(torch.float32))
                             else:
                                 val_loss += nn.BCELoss()(val_output, target.to(torch.float32))
                             # # _, val_preds = torch.max(val_output, 1)
@@ -341,7 +341,7 @@ if __name__ == '__main__':
                             # else:
                             #     raise ValueError('Invalid evaluation metric')
                             # val_accuracy += torch.sum(val_preds == val_classes)
-                            val_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(val_output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in val_dataset.classes])).to(device), dim = 1)) for j in range(len(val_output))]).to(device)
+                            val_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(val_output.sigmoid()[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in val_dataset.classes])).to(device), dim = 1)) for j in range(len(val_output))]).to(device)
                             val_accuracy += torch.sum(val_class_preds == val_classes)
                             val_targets.append(target.cpu().numpy())
                             val_preds.append(val_output.cpu().numpy())
@@ -359,11 +359,11 @@ if __name__ == '__main__':
                         test_accuracy = 0
                         for test_imgs, test_classes in test_dataloader:
                             test_imgs, test_classes = test_imgs.to(device), test_classes.to(device)
-                            test_output = alexnet(test_imgs).sigmoid()
+                            test_output = alexnet(test_imgs)
                             target = torch.Tensor(np.array([leuven_bce_transposed[list(test_dataset.class_to_idx.keys())[i]].to_numpy() for i in test_classes])).to(device)
                             if args.weighted_loss==True:
                                 batch_weights = torch.tensor([class_weights[i] for i in test_classes]).to(device)    
-                                test_loss += nn.BCELoss(weight = batch_weights)(test_output, target.to(torch.float32))
+                                test_loss += nn.BCEWithLogitsLoss(weight = batch_weights)(test_output, target.to(torch.float32))
                             else:
                                 test_loss += nn.BCELoss()(test_output, target.to(torch.float32))
                             # _, test_preds = torch.max(test_output, 1)
@@ -374,7 +374,7 @@ if __name__ == '__main__':
                             # else:
                             #     raise ValueError('Invalid evaluation metric')
                             # test_accuracy += torch.sum(test_preds == test_classes)
-                            test_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
+                            test_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output.sigmoid()[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
                             test_accuracy += torch.sum(test_class_preds == test_classes)
                             test_targets.append(target.cpu().numpy())
                             test_preds.append(test_output.cpu().numpy())
