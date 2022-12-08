@@ -283,7 +283,7 @@ if __name__ == '__main__':
                     loss = nn.BCEWithLogitsLoss(weight = batch_weights)(output, target.to(torch.float32))
                 else:
                     # print('using unweighted loss', args.weighted_loss)
-                    loss = nn.BCELoss()(output, target.to(torch.float32))
+                    loss = nn.BCEWithLogitsLoss()(output, target.to(torch.float32))
                 #loss = F.cross_entropy(output, classes)
 
                 # update the parameters
@@ -296,7 +296,7 @@ if __name__ == '__main__':
                     with torch.no_grad():
                         # import ipdb;ipdb.set_trace()
                         alexnet.eval()
-                        output = alexnet(imgs).sigmoid()
+                        output = alexnet(imgs)
                         # import ipdb; ipdb.set_trace()
                         # _, preds = torch.max(output, 1)
                         # look at the output and see which value of leuven_mds_dict is closest
@@ -311,8 +311,8 @@ if __name__ == '__main__':
                         #     raise ValueError('Invalid evaluation metric')
                         # accuracy = torch.sum(preds == classes.to(device))
                         # accuracy = accuracy / len(classes)
-                        train_metrics = calculate_metrics(target = target.detach().cpu().numpy(), pred = output.detach().cpu().numpy(), dataset_type = 'train_batch', total_steps = total_steps, log_interval = args.log_interval, threshold = 0.5)
-                        train_class_pred = torch.Tensor([torch.argmax(F.cosine_similarity(output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in train_dataset.classes])).to(device), dim = 1)) for j in range(len(output))]).to(device) 
+                        train_metrics = calculate_metrics(target = target.detach().cpu().numpy(), pred = output.sigmoid().detach().cpu().numpy(), dataset_type = 'train_batch', total_steps = total_steps, log_interval = args.log_interval, threshold = 0.5)
+                        train_class_pred = torch.Tensor([torch.argmax(F.cosine_similarity(output.sigmoid()[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in train_dataset.classes])).to(device), dim = 1)) for j in range(len(output))]).to(device) 
                         accuracy = torch.sum(train_class_pred == classes.to(device))
                         accuracy = accuracy / len(classes)
                         wandb.log(train_metrics, step=total_steps)
@@ -332,7 +332,7 @@ if __name__ == '__main__':
                                 batch_weights = torch.tensor([class_weights[i] for i in val_classes]).to(device)
                                 val_loss += nn.BCEWithLogitsLoss(weight = batch_weights)(val_output, target.to(torch.float32))
                             else:
-                                val_loss += nn.BCELoss()(val_output, target.to(torch.float32))
+                                val_loss += nn.BCEWithLogitsLoss()(val_output, target.to(torch.float32))
                             # # _, val_preds = torch.max(val_output, 1)
                             # if args.eval == 'euclidean':    
                             #     val_preds = torch.Tensor([torch.argmin(torch.norm(val_output[j]-torch.Tensor([leuven_bce_transposed[i].to_numpy() for i in val_dataset.classes]).to(device), dim = 1)) for j in range(len(val_output))]).to(device)
@@ -365,7 +365,7 @@ if __name__ == '__main__':
                                 batch_weights = torch.tensor([class_weights[i] for i in test_classes]).to(device)    
                                 test_loss += nn.BCEWithLogitsLoss(weight = batch_weights)(test_output, target.to(torch.float32))
                             else:
-                                test_loss += nn.BCELoss()(test_output, target.to(torch.float32))
+                                test_loss += nn.BCEWithLogitsLoss()(test_output, target.to(torch.float32))
                             # _, test_preds = torch.max(test_output, 1)
                             # if args.eval == 'euclidean':
                             #     test_preds = torch.Tensor([torch.argmin(torch.norm(test_output[j]-torch.Tensor([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes]).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
