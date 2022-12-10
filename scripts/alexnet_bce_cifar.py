@@ -40,7 +40,7 @@ LR_DECAY = 0.0005
 LR_INIT = 0.01
 IMAGE_DIM = 227  # pixels
 NDIM = 2057  # 3057 features
-NUM_CLASSES = 86
+NUM_CLASSES = 10
 DEVICE_IDS = [0, 1, 2, 3]  # GPUs to use
 # modify this to point to your data directory
 INPUT_ROOT_DIR = 'ecoset_leuven'
@@ -57,7 +57,7 @@ parser = argparse.ArgumentParser(description='PyTorch AlexNet')
 parser.add_argument('--batch_size', type=int, default=BATCH_SIZE, metavar='N',
                     help='input batch size for training (default: 128)')
 parser.add_argument('--test-batch-size', type=int, default=TEST_BATCH_SIZE, metavar='N',
-                    help='input batch size for testing (default: 128)')
+                    help='input batch size for testing (default: 100)')
 parser.add_argument('--epochs', type=int, default=NUM_EPOCHS, metavar='N',
                     help='number of epochs to train (default: 90)')
 parser.add_argument('--lr', type=float, default=None, metavar='LR',
@@ -96,7 +96,7 @@ parser.add_argument('--run_id', type = str, default = None)
 parser.add_argument('--eval', type = str, default = 'euclidean')
 parser.add_argument('--add_hidden_layers', action='store_true')
 parser.add_argument('--pre-trained', action='store_true')
-parser.add_argument('--wandb_project_name', type=str, metavar='N', default="CS839-alexnet-ln",
+parser.add_argument('--wandb_project_name', type=str, metavar='N', default="CS839-alexnet-ln-CIFAR",
                     help='wandb')
 
 
@@ -143,7 +143,8 @@ wandb.run.name = args.run_name
 #     leuven_mds_dict = pickle.load(handle)
 
 # load leuven_bce_transposed.csv from the data directory
-leuven_bce_transposed = pd.read_csv('vision_robustness_using_semantic_norms/data/leuven_bce_transposed.csv', index_col=0)
+leuven_bce_transposed = pd.read_csv('vision_robustness_using_semantic_norms/data/updated_csv.csv', index_col=0)
+print(leuven_bce_transposed.shape)
 
 # def weighted_mse_loss(input, target, weight):
 #     # import ipdb;ipdb.set_trace()
@@ -211,10 +212,11 @@ if __name__ == '__main__':
 
 
     # use class weights from class weights dictionary by using the class indices and idx2class
-    class_weights = [0]*NUM_CLASSES
-    for i in train_dataset.classes:
-        class_weights[train_dataset.class_to_idx[i]] = class_weights_dict[i]
-    class_weights = torch.FloatTensor(class_weights).to(device)
+    class_weights = [0.1]*NUM_CLASSES
+    print(train_dataset.classes)
+    # for i in train_dataset.classes:
+    #     class_weights[train_dataset.class_to_idx[i]] = class_weights_dict[i]
+    # class_weights = torch.FloatTensor(class_weights).to(device)
     assert(NUM_CLASSES == len(train_dataset.classes))
 
     # create optimizer
@@ -351,39 +353,39 @@ if __name__ == '__main__':
                         wandb.log({'loss/val_loss': val_loss, 'accuracy/val_accuracy': val_accuracy}, step=total_steps)
                         
                         # calculate the test loss and accuracy
-                        test_loss = 0
-                        test_targets = []
-                        test_preds = []
-                        test_accuracy = 0
-                        for test_imgs, test_classes in test_dataloader:
-                            test_imgs, test_classes = test_imgs.to(device), test_classes.to(device)
-                            test_output = alexnet(test_imgs)
-                            target = torch.Tensor(np.array([leuven_bce_transposed[list(test_dataset.class_to_idx.keys())[i]].to_numpy() for i in test_classes])).to(device)
-                            if args.weighted_loss==True:
-                                batch_weights = torch.tensor([class_weights[i] for i in test_classes]).to(device)    
-                                test_loss += nn.BCEWithLogitsLoss(weight = batch_weights)(test_output, target.to(torch.float32))
-                            else:
-                                test_loss += nn.BCEWithLogitsLoss()(test_output, target.to(torch.float32))
-                            # _, test_preds = torch.max(test_output, 1)
-                            # if args.eval == 'euclidean':
-                            #     test_preds = torch.Tensor([torch.argmin(torch.norm(test_output[j]-torch.Tensor([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes]).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
-                            # elif args.eval == 'cosine':
-                            #     test_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
-                            # else:
-                            #     raise ValueError('Invalid evaluation metric')
-                            # test_accuracy += torch.sum(test_preds == test_classes)
-                            test_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output.sigmoid()[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
-                            test_accuracy += torch.sum(test_class_preds == test_classes)
-                            test_targets.append(target.detach().cpu().numpy())
-                            test_preds.append(test_output.detach().cpu().numpy())
-                        test_loss = test_loss.detach().item()/len(test_dataloader)
-                        test_accuracy = test_accuracy.detach().item()/len(test_dataset)
-                        test_metrics = calculate_metrics(target = np.concatenate(test_targets), pred = np.concatenate(test_preds), dataset_type = 'test', total_steps = total_steps, log_interval = args.log_interval,threshold = 0.5)
-                        wandb.log(test_metrics, step=total_steps)
-                        wandb.log({'loss/test_loss': test_loss, 'accuracy/test_accuracy': test_accuracy})
-                        print('Epoch: {} \tStep: {} \tTrain_Loss: {:.4f} \tTrain_Acc: {}\tValidation loss: {:.4f} \tValidation accuracy: {:.4f}\tTest loss: {:.4f} \tTest accuracy: {:.4f}'
-                            .format(epoch + 1, total_steps, loss.detach().item(), accuracy.detach().item(), val_loss, val_accuracy, test_loss, test_accuracy))
-                        # print(classification_report(test_targets, test_preds, target_names = leuven_bce_transposed.index))
+                        # test_loss = 0
+                        # test_targets = []
+                        # test_preds = []
+                        # test_accuracy = 0
+                        # for test_imgs, test_classes in test_dataloader:
+                        #     test_imgs, test_classes = test_imgs.to(device), test_classes.to(device)
+                        #     test_output = alexnet(test_imgs)
+                        #     target = torch.Tensor(np.array([leuven_bce_transposed[list(test_dataset.class_to_idx.keys())[i]].to_numpy() for i in test_classes])).to(device)
+                        #     if args.weighted_loss==True:
+                        #         batch_weights = torch.tensor([class_weights[i] for i in test_classes]).to(device)    
+                        #         test_loss += nn.BCEWithLogitsLoss(weight = batch_weights)(test_output, target.to(torch.float32))
+                        #     else:
+                        #         test_loss += nn.BCEWithLogitsLoss()(test_output, target.to(torch.float32))
+                        #     # _, test_preds = torch.max(test_output, 1)
+                        #     # if args.eval == 'euclidean':
+                        #     #     test_preds = torch.Tensor([torch.argmin(torch.norm(test_output[j]-torch.Tensor([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes]).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
+                        #     # elif args.eval == 'cosine':
+                        #     #     test_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
+                        #     # else:
+                        #     #     raise ValueError('Invalid evaluation metric')
+                        #     # test_accuracy += torch.sum(test_preds == test_classes)
+                        #     test_class_preds = torch.Tensor([torch.argmax(F.cosine_similarity(test_output.sigmoid()[j].unsqueeze(0), torch.Tensor(np.array([leuven_bce_transposed[i].to_numpy() for i in test_dataset.classes])).to(device), dim = 1)) for j in range(len(test_output))]).to(device)
+                        #     test_accuracy += torch.sum(test_class_preds == test_classes)
+                        #     test_targets.append(target.detach().cpu().numpy())
+                        #     test_preds.append(test_output.detach().cpu().numpy())
+                        # test_loss = test_loss.detach().item()/len(test_dataloader)
+                        # test_accuracy = test_accuracy.detach().item()/len(test_dataset)
+                        # test_metrics = calculate_metrics(target = np.concatenate(test_targets), pred = np.concatenate(test_preds), dataset_type = 'test', total_steps = total_steps, log_interval = args.log_interval,threshold = 0.5)
+                        # wandb.log(test_metrics, step=total_steps)
+                        # wandb.log({'loss/test_loss': test_loss, 'accuracy/test_accuracy': test_accuracy})
+                        # print('Epoch: {} \tStep: {} \tTrain_Loss: {:.4f} \tTrain_Acc: {}\tValidation loss: {:.4f} \tValidation accuracy: {:.4f}\tTest loss: {:.4f} \tTest accuracy: {:.4f}'
+                        #     .format(epoch + 1, total_steps, loss.detach().item(), accuracy.detach().item(), val_loss, val_accuracy, test_loss, test_accuracy))
+                        # # print(classification_report(test_targets, test_preds, target_names = leuven_bce_transposed.index))
                 total_steps += 1
             if args.switch_on_lr_decay:
                 print('lr scheduler on') 
