@@ -36,7 +36,7 @@ class AlexNet(nn.Module):
                 nn.ReLU(inplace=True),
                 nn.Linear(500, 100),
                 nn.ReLU(inplace=True),
-                nn.Linear(100, 6)
+                nn.Linear(100, num_classes)
             )
         else:
             self.classifier = nn.Sequential(

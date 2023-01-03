@@ -65,6 +65,28 @@ def load_model(model_type, epoch, model_weights_path, device):
                                                 nn.Linear(100, 6))
         exp_name = 'updated_ds_pre_trained_alexnet_bce_v2_adam_0.00001'
         alexnet = alexnet.to(device)
+    elif model_type == 'vss_baseline':
+        alexnet = models.alexnet(pretrained=True)
+        alexnet.classifier[6] = nn.Sequential(nn.Linear(4096, 2000),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(2000, 500),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(500, 100),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(100, 86))
+        exp_name = 'baseline'
+        alexnet = alexnet.to(device)
+    elif model_type == 'vss_bce':
+        alexnet = models.alexnet(pretrained=True)
+        alexnet.classifier[6] = nn.Sequential(nn.Linear(4096, 2000),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(2000, 500),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(500, 100),
+                                                nn.ReLU(inplace=True),
+                                                nn.Linear(100, 2057))
+        exp_name = 'bce'
+        alexnet = alexnet.to(device)
     else:
         raise ValueError('Invalid model type')
     CHECKPOINT_DIR = model_weights_path + '/models/{}'.format(exp_name)  
