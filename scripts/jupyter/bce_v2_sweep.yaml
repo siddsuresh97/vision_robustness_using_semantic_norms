@@ -1,0 +1,14 @@
+program: alexnet_bce_v2.py
+method: random
+metric:
+  name: loss/val_loss
+  goal: minimize
+parameters:
+  learning_rate:
+    distribution: uniform
+    min: 0.0001
+    max: 0.1
+  batch_size:
+    values: [128, 256, 512]
+  epochs:
+    values: [1]
