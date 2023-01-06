@@ -9,9 +9,9 @@ parameters:
     min: 0.0001
     max: 0.1
   batch_size:
-    values: [128, 256, 512]
+    values: [256, 512]
   epochs:
-    value: 1
+    value: 10
 command:
   - python
   - ${program}
