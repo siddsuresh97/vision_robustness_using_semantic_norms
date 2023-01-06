@@ -155,7 +155,10 @@ else:
 #     leuven_mds_dict = pickle.load(handle)
 
 # load leuven_bce_transposed.csv from the data directory
-leuven_bce_transposed = pd.read_csv('vision_robustness_using_semantic_norms/data/leuven_bce_transposed.csv', index_col=0)
+if args.sweep == True:
+    leuven_bce_transposed = pd.read_csv('../data/leuven_bce_transposed.csv', index_col=0)
+else:
+    leuven_bce_transposed = pd.read_csv('vision_robustness_using_semantic_norms/data/leuven_bce_transposed.csv', index_col=0)
 
 # def weighted_mse_loss(input, target, weight):
 #     # import ipdb;ipdb.set_trace()
