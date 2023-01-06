@@ -163,9 +163,9 @@ if __name__ == '__main__':
     #set random seed
     random.seed(seed)
 
-    args.lr = wandb.config.lr
-    args.batch_size = wandb.config.batch_size
-    args.epochs = wandb.config.epochs
+    # args.lr = wandb.config.lr
+    # args.batch_size = wandb.config.batch_size
+    # args.epochs = wandb.config.epochs
 
     # tbwriter = SummaryWriter(log_dir=LOG_DIR)
     # print('TensorboardX summary writer created')
