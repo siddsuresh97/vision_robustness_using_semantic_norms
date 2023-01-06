@@ -163,6 +163,10 @@ if __name__ == '__main__':
     #set random seed
     random.seed(seed)
 
+    args.lr = wandb.config.lr
+    args.batch_size = wandb.config.batch_size
+    args.epochs = wandb.config.epochs
+
     # tbwriter = SummaryWriter(log_dir=LOG_DIR)
     # print('TensorboardX summary writer created')
 
@@ -223,7 +227,7 @@ if __name__ == '__main__':
     # the one that WORKS
     #optimizer = optim.Adam(params=alexnet.parameters(), lr=0.0001)
     ### BELOW is the setting proposed by the original paper - which doesn't train....
-    if args.alexnet_og_hyperparams:
+    if args.alexnet_og_hyperparams :
         print('using original alexnet hyperparameters')
         optimizer = optim.SGD(
             params=alexnet.parameters(),
