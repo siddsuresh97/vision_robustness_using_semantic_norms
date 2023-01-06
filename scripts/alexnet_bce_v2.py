@@ -143,7 +143,11 @@ wandb.init(id = id, resume = "allow", project=args.wandb_project_name, entity="s
 config = wandb.config
 
 #name the wandb run
-wandb.run.name = args.exp_name
+if args.sweep == True:
+    #do nothing
+    pass
+else:
+    wandb.run.name = args.exp_name
 
 
 # # load the leuven_mds_dict.pickle from the data directory
@@ -411,6 +415,6 @@ if __name__ == '__main__':
                 'wandb_id': wandb.run.id,
                 'lr_scheduler': lr_scheduler.state_dict()
             }
-            if not args.overfit:
+            if not args.overfit or not args.sweep:
                 torch.save(state, checkpoint_path)
 
