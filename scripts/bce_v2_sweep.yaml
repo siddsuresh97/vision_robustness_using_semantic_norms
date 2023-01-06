@@ -14,7 +14,6 @@ parameters:
     value: 1
 command:
   - python
-  - --exp_name=scratch_alexnet_bce_adam_{lr}_{batch_size}
   - --switch_on_lr_decay
   - --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/
   - --input_root_dir=../../ecoset_leuven_updated
