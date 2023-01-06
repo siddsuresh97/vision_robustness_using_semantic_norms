@@ -21,9 +21,9 @@ require_gpus =  (Capability > 7.5)
 +GPUJobLength = "long"
 +Is_resumable = true
 
-request_gpus = 2
-request_cpus = 16
-request_memory = 130GB
+request_gpus = 4
+request_cpus = 32
+request_memory = 300GB
 request_disk = 500GB
 
 queue 1
