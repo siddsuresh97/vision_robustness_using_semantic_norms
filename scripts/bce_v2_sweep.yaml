@@ -20,5 +20,5 @@ command:
   - --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/
   - --input_root_dir=../../ecoset_leuven_updated
   - --eval=cosine
-  - --wandb_project_name cogsci_bce
+  - --wandb_project_name=cogsci_bce
   - ${args}
