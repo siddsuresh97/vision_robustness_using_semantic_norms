@@ -127,7 +127,7 @@ if not os.path.exists(CHECKPOINT_DIR):
 
 # read class weights from class_weights.json
 if args.sweep == True:
-    with open('../../class_weights.json') as f:
+    with open('../class_weights.json') as f:
         class_weights = json.load(f)
         class_weights_dict = {k: v for k, v in class_weights.items()}
 else:
