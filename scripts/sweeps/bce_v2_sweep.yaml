@@ -16,6 +16,7 @@ command:
   - python
   - ${program}
   - --switch_on_lr_decay
+  - --sweep
   - --device_ids=0
   - --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/
   - --input_root_dir=../../ecoset_leuven_updated

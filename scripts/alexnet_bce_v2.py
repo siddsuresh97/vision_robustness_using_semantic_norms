@@ -98,6 +98,7 @@ parser.add_argument('--add_hidden_layers', action='store_true')
 parser.add_argument('--pre-trained', action='store_true')
 parser.add_argument('--wandb_project_name', type=str, metavar='N',
                     help='wandb')
+parser.add_argument('--sweep', action='store_true')
 
 
 args = parser.parse_args()
@@ -125,9 +126,14 @@ if not os.path.exists(CHECKPOINT_DIR):
     os.makedirs(CHECKPOINT_DIR)
 
 # read class weights from class_weights.json
-with open('vision_robustness_using_semantic_norms/class_weights.json') as f:
-    class_weights = json.load(f)
-    class_weights_dict = {k: v for k, v in class_weights.items()}
+if args.sweep == True:
+    with open('../../class_weights.json') as f:
+        class_weights = json.load(f)
+        class_weights_dict = {k: v for k, v in class_weights.items()}
+else:
+    with open('vision_robustness_using_semantic_norms/class_weights.json') as f:
+        class_weights = json.load(f)
+        class_weights_dict = {k: v for k, v in class_weights.items()}
 
 # use wandb api key
 wandb.login(key='18a861e71f78135d23eb672c08922edbfcb8d364')
