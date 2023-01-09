@@ -242,10 +242,10 @@ if __name__ == '__main__':
 
 
     # use class weights from class weights dictionary by using the class indices and idx2class
-    class_weights = [0]*NUM_CLASSES
-    for i in train_dataset.classes:
-        class_weights[train_dataset.class_to_idx[i]] = class_weights_dict[i]
-    class_weights = torch.FloatTensor(class_weights).to(device)
+    # class_weights = [0]*NUM_CLASSES
+    # for i in train_dataset.classes:
+    #     class_weights[train_dataset.class_to_idx[i]] = class_weights_dict[i]
+    # class_weights = torch.FloatTensor(class_weights).to(device)
     assert(NUM_CLASSES == len(train_dataset.classes))
 
     # create optimizer
@@ -358,8 +358,8 @@ if __name__ == '__main__':
                             val_output = alexnet(val_imgs)
                             target = torch.Tensor(np.array([leuven_bce_transposed[list(val_dataset.class_to_idx.keys())[i]].to_numpy() for i in val_classes])).to(device)
                             if args.weighted_loss==True:
-                                batch_weights = torch.tensor([class_weights[i] for i in val_classes]).to(device)
-                                val_loss += nn.BCEWithLogitsLoss(weight = batch_weights)(val_output, target.to(torch.float32))
+                                # batch_weights = torch.tensor([class_weights[i] for i in val_classes]).to(device)
+                                val_loss += nn.BCEWithLogitsLoss(weight = class_weights_dict['pos_weight'])(val_output, target.to(torch.float32))
                             else:
                                 val_loss += nn.BCEWithLogitsLoss()(val_output, target.to(torch.float32))
                             # # _, val_preds = torch.max(val_output, 1)
@@ -391,8 +391,8 @@ if __name__ == '__main__':
                             test_output = alexnet(test_imgs)
                             target = torch.Tensor(np.array([leuven_bce_transposed[list(test_dataset.class_to_idx.keys())[i]].to_numpy() for i in test_classes])).to(device)
                             if args.weighted_loss==True:
-                                batch_weights = torch.tensor([class_weights[i] for i in test_classes]).to(device)    
-                                test_loss += nn.BCEWithLogitsLoss(weight = batch_weights)(test_output, target.to(torch.float32))
+                                # batch_weights = torch.tensor([class_weights[i] for i in test_classes]).to(device)    
+                                test_loss += nn.BCEWithLogitsLoss(weight = class_weights_dict['pos_weight'])(test_output, target.to(torch.float32))
                             else:
                                 test_loss += nn.BCEWithLogitsLoss()(test_output, target.to(torch.float32))
                             # _, test_preds = torch.max(test_output, 1)
