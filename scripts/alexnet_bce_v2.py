@@ -97,6 +97,7 @@ parser.add_argument('--eval', type = str, default = 'euclidean')
 parser.add_argument('--add_hidden_layers', action='store_true')
 parser.add_argument('--pre-trained', action='store_true')
 parser.add_argument('--unfreeze_all', action='store_true')
+parser.add_argument('--cleaned_features', action='store_true')
 parser.add_argument('--wandb_project_name', type=str, metavar='N',
                     help='wandb')
 parser.add_argument('--sweep', action='store_true')
@@ -128,13 +129,9 @@ if not os.path.exists(CHECKPOINT_DIR):
 
 # read class weights from class_weights.json
 if args.sweep == True:
-    with open('../class_weights.json') as f:
-        class_weights = json.load(f)
-        class_weights_dict = {k: v for k, v in class_weights.items()}
+    class_weights_dict = pd.read_csv('../data/leuven_bce_transposed_clean_pos_weights.csv', index_col=0)
 else:
-    with open('vision_robustness_using_semantic_norms/class_weights.json') as f:
-        class_weights = json.load(f)
-        class_weights_dict = {k: v for k, v in class_weights.items()}
+    class_weights_dict = pd.read_csv('vision_robustness_using_semantic_norms/data/leuven_bce_transposed_clean_pos_weights.csv', index_col=0)
 
 # use wandb api key
 wandb.login(key='18a861e71f78135d23eb672c08922edbfcb8d364')
@@ -155,12 +152,20 @@ else:
 # with open('vision_robustness_using_semantic_norms/data/leuven_mds_dict.pickle', 'rb') as handle:
 #     leuven_mds_dict = pickle.load(handle)
 
-# load leuven_bce_transposed.csv from the data directory
-if args.sweep == True:
-    leuven_bce_transposed = pd.read_csv('../data/leuven_bce_transposed.csv', index_col=0)
+if args.cleaned_features == True:
+    # load leuven_bce_transposed.csv from the data directory
+    if args.sweep == True:
+        leuven_bce_transposed = pd.read_csv('../data/leuven_bce_transposed_clean_without_pos_weight.csv', index_col=0)
+    else:
+        leuven_bce_transposed = pd.read_csv('vision_robustness_using_semantic_norms/data/leuven_bce_transposed_clean_without_pos_weight.csv', index_col=0)
+     
 else:
-    leuven_bce_transposed = pd.read_csv('vision_robustness_using_semantic_norms/data/leuven_bce_transposed.csv', index_col=0)
-
+    # load leuven_bce_transposed.csv from the data directory
+    if args.sweep == True:
+        leuven_bce_transposed = pd.read_csv('../data/leuven_bce_transposed.csv', index_col=0)
+    else:
+        leuven_bce_transposed = pd.read_csv('vision_robustness_using_semantic_norms/data/leuven_bce_transposed.csv', index_col=0)
+    
 # def weighted_mse_loss(input, target, weight):
 #     # import ipdb;ipdb.set_trace()
 #     return (weight.view(-1 ,1) * (input - target) ** 2).mean()
@@ -303,8 +308,8 @@ if __name__ == '__main__':
                 # calculate the loss
                 output = alexnet(imgs)
                 if args.weighted_loss==True: 
-                    batch_weights = torch.tensor([class_weights[i] for i in classes]).to(device)
-                    loss = nn.BCEWithLogitsLoss(weight = batch_weights)(output, target.to(torch.float32))
+                    # batch_weights = torch.tensor([class_weights[i] for i in classes]).to(device)
+                    loss = nn.BCEWithLogitsLoss(weight = class_weights_dict['pos_weight'])(output, target.to(torch.float32))
                 else:
                     # print('using unweighted loss', args.weighted_loss)
                     loss = nn.BCEWithLogitsLoss()(output, target.to(torch.float32))
