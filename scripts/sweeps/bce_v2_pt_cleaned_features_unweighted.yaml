@@ -24,5 +24,6 @@ command:
   - --pre-trained
   - --wandb_project_name=cogsci_bce_sweeps
   - --log_interval=400
+  - ----ndim=1639
   - --cleaned_features
   - ${args}

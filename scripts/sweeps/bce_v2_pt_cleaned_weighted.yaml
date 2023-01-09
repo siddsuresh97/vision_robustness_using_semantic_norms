@@ -26,4 +26,5 @@ command:
   - --log_interval=400 
   - --cleaned_features
   - --weighted_loss
+  - --ndim=1639
   - ${args}
