@@ -96,6 +96,7 @@ parser.add_argument('--run_id', type = str, default = None)
 parser.add_argument('--eval', type = str, default = 'euclidean')
 parser.add_argument('--add_hidden_layers', action='store_true')
 parser.add_argument('--pre-trained', action='store_true')
+parser.add_argument('--unfreeze_all', action='store_true')
 parser.add_argument('--wandb_project_name', type=str, metavar='N',
                     help='wandb')
 parser.add_argument('--sweep', action='store_true')
@@ -198,9 +199,15 @@ if __name__ == '__main__':
                                                 nn.Linear(100, args.ndim)
 )
         print('Changed the last layer to have {} output shape'.format(args.ndim))
-        # freeze all the layers except the last layer
-        for param in alexnet.parameters():
-            param.requires_grad = False
+        if args.unfreeze_all:
+            # unfreeze all the layers
+            for param in alexnet.parameters():
+                param.requires_grad = True
+            print('Unfreezed all the layers')
+        else:
+            # freeze all the layers except the last layer
+            for param in alexnet.parameters():
+                param.requires_grad = False
         for param in alexnet.classifier[6].parameters():
             param.requires_grad = True
         # alexnet = alexnet.to(device)
