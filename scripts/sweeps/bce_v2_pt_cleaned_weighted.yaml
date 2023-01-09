@@ -23,7 +23,7 @@ command:
   - --eval=cosine
   - --pre-trained
   - --wandb_project_name=cogsci_bce_sweeps
-  - --log_interval 400 
+  - --log_interval=400 
   - --cleaned_features
   - --weighted_loss
   - ${args}
