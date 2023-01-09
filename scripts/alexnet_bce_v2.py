@@ -309,7 +309,7 @@ if __name__ == '__main__':
                 output = alexnet(imgs)
                 if args.weighted_loss==True: 
                     # batch_weights = torch.tensor([class_weights[i] for i in classes]).to(device)
-                    loss = nn.BCEWithLogitsLoss(weight = torch.tensor(class_weights_dict['pos_weight'].to_list()))(output, target.to(torch.float32))
+                    loss = nn.BCEWithLogitsLoss(weight = torch.tensor(class_weights_dict['pos_weight'].to_list()).to(device))(output, target.to(torch.float32))
                 else:
                     # print('using unweighted loss', args.weighted_loss)
                     loss = nn.BCEWithLogitsLoss()(output, target.to(torch.float32))
@@ -359,7 +359,7 @@ if __name__ == '__main__':
                             target = torch.Tensor(np.array([leuven_bce_transposed[list(val_dataset.class_to_idx.keys())[i]].to_numpy() for i in val_classes])).to(device)
                             if args.weighted_loss==True:
                                 # batch_weights = torch.tensor([class_weights[i] for i in val_classes]).to(device)
-                                val_loss += nn.BCEWithLogitsLoss(weight = torch.tensor(class_weights_dict['pos_weight'].to_list()))(val_output, target.to(torch.float32))
+                                val_loss += nn.BCEWithLogitsLoss(weight = torch.tensor(class_weights_dict['pos_weight'].to_list()).to(device) )(val_output, target.to(torch.float32))
                             else:
                                 val_loss += nn.BCEWithLogitsLoss()(val_output, target.to(torch.float32))
                             # # _, val_preds = torch.max(val_output, 1)
@@ -392,7 +392,7 @@ if __name__ == '__main__':
                             target = torch.Tensor(np.array([leuven_bce_transposed[list(test_dataset.class_to_idx.keys())[i]].to_numpy() for i in test_classes])).to(device)
                             if args.weighted_loss==True:
                                 # batch_weights = torch.tensor([class_weights[i] for i in test_classes]).to(device)    
-                                test_loss += nn.BCEWithLogitsLoss(weight = torch.tensor(class_weights_dict['pos_weight'].to_list()))(test_output, target.to(torch.float32))
+                                test_loss += nn.BCEWithLogitsLoss(weight = torch.tensor(class_weights_dict['pos_weight'].to_list()).to(device))(test_output, target.to(torch.float32))
                             else:
                                 test_loss += nn.BCEWithLogitsLoss()(test_output, target.to(torch.float32))
                             # _, test_preds = torch.max(test_output, 1)
