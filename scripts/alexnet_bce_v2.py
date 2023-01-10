@@ -91,6 +91,10 @@ parser.add_argument('--test_img_dir', type=str, default=TEST_IMG_DIR, metavar='N
 parser.add_argument('--weighted_loss', action='store_true')
 parser.add_argument('--overfit', action='store_true')
 parser.add_argument('--switch_on_lr_decay', action='store_true')
+parser.add_argument('--lr_decay_rate_gamma', type=float, default=0.1,
+                    help='lr_decay_rate_gamma')
+parser.add_argument('--lr_decay_rate_step_size', type=int, default=30,
+                    help='lr_decay_rate_step_size')
 parser.add_argument('--resume_training', action='store_true')
 parser.add_argument('--run_id', type = str, default = None)
 parser.add_argument('--eval', type = str, default = 'euclidean')
@@ -265,7 +269,7 @@ if __name__ == '__main__':
     print('Optimizer created')
 
     # multiply LR by 1 / 10 after every 30 epochs
-    lr_scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
+    lr_scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=args.lr_decay_step_size, gamma=args.lr_decay_rate_gamma)
     print('LR Scheduler created')
     
     # start training!!

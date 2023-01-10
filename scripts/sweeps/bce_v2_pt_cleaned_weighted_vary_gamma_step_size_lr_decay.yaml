@@ -1,0 +1,35 @@
+program: alexnet_bce_v2.py
+method: random
+metric:
+  name: loss/val_loss
+  goal: minimize
+parameters:
+  lr_decay_rate_gamma:
+    distribution: uniform
+    min: 0.1
+    max: 0.5
+  lr_decay_step_size:
+    distribution: uniform
+    min: 1
+    max: 5
+  batch_size:
+    values: [512]
+  epochs:
+    value: 10
+command:
+  - python
+  - ${program}
+  - --switch_on_lr_decay
+  - --sweep
+  - --device_ids=0
+  - --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/
+  - --input_root_dir=../../ecoset_leuven_updated
+  - --eval=cosine
+  - --pre-trained
+  - --wandb_project_name=cogsci_bce_sweeps_pt_weighted_freezed_step_decay
+  - --log_interval=400 
+  - --cleaned_features
+  - --weighted_loss
+  - --ndim=1639
+  - --lr=0.0008397681911468779
+  - ${args}
