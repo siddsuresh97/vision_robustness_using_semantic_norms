@@ -93,8 +93,8 @@ parser.add_argument('--overfit', action='store_true')
 parser.add_argument('--switch_on_lr_decay', action='store_true')
 parser.add_argument('--lr_decay_rate_gamma', type=float, default=0.1,
                     help='lr_decay_rate_gamma')
-parser.add_argument('--lr_decay_rate_step_size', type=int, default=30,
-                    help='lr_decay_rate_step_size')
+parser.add_argument('--lr_decay_step_size', type=int, default=30,
+                    help='lr_decay_step_size')
 parser.add_argument('--resume_training', action='store_true')
 parser.add_argument('--run_id', type = str, default = None)
 parser.add_argument('--eval', type = str, default = 'euclidean')

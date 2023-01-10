@@ -9,9 +9,7 @@ parameters:
     min: 0.1
     max: 0.5
   lr_decay_step_size:
-    distribution: uniform
-    min: 1
-    max: 5
+    values: [1, 2, 3, 4, 5]
   batch_size:
     values: [512]
   epochs:
