@@ -1,0 +1,204 @@
+Used seed : 1
+Loaded pre-trained alexnet model
+Changed the last layer to have 1639 output shape
+Freezed all the layers except the last layer
+DataParallel(
+  (module): AlexNet(
+    (features): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(11, 11), stride=(4, 4), padding=(2, 2))
+      (1): ReLU(inplace=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (3): Conv2d(64, 192, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+      (4): ReLU(inplace=True)
+      (5): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (6): Conv2d(192, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (7): ReLU(inplace=True)
+      (8): Conv2d(384, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (9): ReLU(inplace=True)
+      (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace=True)
+      (12): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (avgpool): AdaptiveAvgPool2d(output_size=(6, 6))
+    (classifier): Sequential(
+      (0): Dropout(p=0.5, inplace=False)
+      (1): Linear(in_features=9216, out_features=4096, bias=True)
+      (2): ReLU(inplace=True)
+      (3): Dropout(p=0.5, inplace=False)
+      (4): Linear(in_features=4096, out_features=4096, bias=True)
+      (5): ReLU(inplace=True)
+      (6): Sequential(
+        (0): Linear(in_features=4096, out_features=2000, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=2000, out_features=500, bias=True)
+        (3): ReLU(inplace=True)
+        (4): Linear(in_features=500, out_features=100, bias=True)
+        (5): ReLU(inplace=True)
+        (6): Linear(in_features=100, out_features=1639, bias=True)
+      )
+    )
+  )
+)
+AlexNet created
+train created
+lenght of debug dataset is: 5119
+unique classes are: 86
+{0: 4865, 1: 3090, 2: 4757, 3: 871, 4: 4281, 5: 2267, 6: 4861, 7: 4845, 8: 3521, 9: 1364, 10: 4410, 11: 4130, 12: 1627, 13: 3953, 14: 4888, 15: 4885, 16: 4517, 17: 3201, 18: 2225, 19: 3072, 20: 4733, 21: 3161, 22: 603, 23: 895, 24: 4811, 25: 4804, 26: 4753, 27: 3250, 28: 4821, 29: 1937, 30: 4769, 31: 3497, 32: 2138, 33: 4741, 34: 4752, 35: 3594, 36: 2971, 37: 1630, 38: 2981, 39: 4897, 40: 1490, 41: 2918, 42: 2926, 43: 3934, 44: 2149, 45: 4637, 46: 4544, 47: 4836, 48: 4158, 49: 4564, 50: 3594, 51: 4820, 52: 4415, 53: 1200, 54: 2866, 55: 4725, 56: 4204, 57: 2073, 58: 2890, 59: 2858, 60: 4095, 61: 1703, 62: 4707, 63: 1833, 64: 2987, 65: 1816, 66: 4806, 67: 4834, 68: 2995, 69: 4839, 70: 2791, 71: 4787, 72: 1466, 73: 4629, 74: 2352, 75: 4668, 76: 4875, 77: 4833, 78: 4590, 79: 3571, 80: 4795, 81: 1545, 82: 3866, 83: 4450, 84: 2980, 85: 4349}
+Validation dataset created
+Test dataset created
+Dataloader created
+Debug dataloader created
+Validation dataloader created
+Test dataset created
+Test dataloader created
+Using Adam optimizer
+Optimizer created
+LR Scheduler created
+Starting training...
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 1 	Step: 400 	Loss: 1.6268 	Acc: 0.494140625
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 1 	Step: 400 	Train_Loss: 1.6268 	Train_Acc: 0.494140625	Validation loss: 1.6507 	Validation accuracy: 0.3916	Test loss: 1.6701 	Test accuracy: 0.3833
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+lr scheduler on
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 2 	Step: 800 	Loss: 1.3313 	Acc: 0.60546875
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 2 	Step: 800 	Train_Loss: 1.3313 	Train_Acc: 0.60546875	Validation loss: 1.3873 	Validation accuracy: 0.5077	Test loss: 1.4271 	Test accuracy: 0.5016
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+lr scheduler on
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 3 	Step: 1200 	Loss: 1.1737 	Acc: 0.658203125
+Epoch: 3 	Step: 1200 	Train_Loss: 1.1737 	Train_Acc: 0.658203125	Validation loss: 1.2757 	Validation accuracy: 0.5560	Test loss: 1.3107 	Test accuracy: 0.5567
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+Epoch: 3 	Step: 1600 	Loss: 1.1177 	Acc: 0.65625
+Epoch: 3 	Step: 1600 	Train_Loss: 1.1177 	Train_Acc: 0.65625	Validation loss: 1.2136 	Validation accuracy: 0.5798	Test loss: 1.2396 	Test accuracy: 0.5719
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+lr scheduler on
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 4 	Step: 2000 	Loss: 1.0174 	Acc: 0.69140625
+Epoch: 4 	Step: 2000 	Train_Loss: 1.0174 	Train_Acc: 0.69140625	Validation loss: 1.1949 	Validation accuracy: 0.5879	Test loss: 1.2220 	Test accuracy: 0.5884
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+lr scheduler on
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 5 	Step: 2400 	Loss: 1.0648 	Acc: 0.681640625
+Epoch: 5 	Step: 2400 	Train_Loss: 1.0648 	Train_Acc: 0.681640625	Validation loss: 1.1799 	Validation accuracy: 0.6005	Test loss: 1.2053 	Test accuracy: 0.5944
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 5 	Step: 2800 	Loss: 0.9508 	Acc: 0.736328125
+Epoch: 5 	Step: 2800 	Train_Loss: 0.9508 	Train_Acc: 0.736328125	Validation loss: 1.1652 	Validation accuracy: 0.6049	Test loss: 1.1930 	Test accuracy: 0.5956
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+lr scheduler on
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 6 	Step: 3200 	Loss: 1.0591 	Acc: 0.693359375
+Epoch: 6 	Step: 3200 	Train_Loss: 1.0591 	Train_Acc: 0.693359375	Validation loss: 1.1629 	Validation accuracy: 0.6072	Test loss: 1.1958 	Test accuracy: 0.5972
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+lr scheduler on
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 7 	Step: 3600 	Loss: 0.9540 	Acc: 0.75
+Epoch: 7 	Step: 3600 	Train_Loss: 0.9540 	Train_Acc: 0.75	Validation loss: 1.1517 	Validation accuracy: 0.6100	Test loss: 1.1816 	Test accuracy: 0.5995
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1580: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, "true nor predicted", "F-score is", len(true_sum))
+Epoch: 7 	Step: 4000 	Loss: 0.8769 	Acc: 0.744140625
+Epoch: 7 	Step: 4000 	Train_Loss: 0.8769 	Train_Acc: 0.744140625	Validation loss: 1.1498 	Validation accuracy: 0.6130	Test loss: 1.1791 	Test accuracy: 0.6019
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+lr scheduler on
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+Epoch: 8 	Step: 4400 	Loss: 1.0291 	Acc: 0.71484375
+Epoch: 8 	Step: 4400 	Train_Loss: 1.0291 	Train_Acc: 0.71484375	Validation loss: 1.1518 	Validation accuracy: 0.6098	Test loss: 1.1800 	Test accuracy: 0.6007
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))
+/home/siddsuresh97/packages/anaconda3/lib/python3.9/site-packages/PIL/TiffImagePlugin.py:822: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0.
+  warnings.warn(str(msg))

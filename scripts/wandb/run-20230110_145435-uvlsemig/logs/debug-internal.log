@@ -1,0 +1,146 @@
+2023-01-10 14:54:35,554 INFO    StreamThr :2778958 [internal.py:wandb_internal():88] W&B internal server running at pid: 2778958, started at: 2023-01-10 14:54:35.550566
+2023-01-10 14:54:35,558 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: status
+2023-01-10 14:54:35,560 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: status
+2023-01-10 14:54:35,565 DEBUG   SenderThread:2778958 [sender.py:send():303] send: header
+2023-01-10 14:54:35,565 INFO    WriterThread:2778958 [datastore.py:open_for_write():75] open: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/run-uvlsemig.wandb
+2023-01-10 14:54:35,594 DEBUG   SenderThread:2778958 [sender.py:send():303] send: run
+2023-01-10 14:54:35,602 INFO    SenderThread:2778958 [sender.py:_maybe_setup_resume():593] checking resume status for siddsuresh97/cogsci_bce_sweeps_pt_weighted_frozen_all/uvlsemig
+2023-01-10 14:54:35,705 INFO    SenderThread:2778958 [sender.py:_maybe_setup_resume():656] configured resuming with: ResumeState(resumed=True,step=1,history=0,events=0,output=0,runtime=0,wandb_runtime=None,summary={},config={'lr': {'value': 0.0008507720626983109}, 'epochs': {'value': 10}, 'batch_size': {'value': 512}, 'lr_decay_step_size': {'value': 2}, 'lr_decay_rate_gamma': {'value': 0.3943809932269493}})
+2023-01-10 14:54:35,955 INFO    SenderThread:2778958 [dir_watcher.py:__init__():216] watching files in: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files
+2023-01-10 14:54:35,955 INFO    SenderThread:2778958 [sender.py:_start_run_threads():928] run started: uvlsemig with start time 1673384075.545863
+2023-01-10 14:54:35,955 DEBUG   SenderThread:2778958 [sender.py:send():303] send: summary
+2023-01-10 14:54:35,955 INFO    SenderThread:2778958 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-10 14:54:35,958 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: check_version
+2023-01-10 14:54:35,959 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: check_version
+2023-01-10 14:54:36,057 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: run_start
+2023-01-10 14:54:36,074 DEBUG   HandlerThread:2778958 [system_info.py:__init__():31] System info init
+2023-01-10 14:54:36,074 DEBUG   HandlerThread:2778958 [system_info.py:__init__():46] System info init done
+2023-01-10 14:54:36,074 INFO    HandlerThread:2778958 [system_monitor.py:start():150] Starting system monitor
+2023-01-10 14:54:36,075 INFO    SystemMonitor:2778958 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-01-10 14:54:36,076 INFO    SystemMonitor:2778958 [interfaces.py:start():168] Started cpu
+2023-01-10 14:54:36,077 INFO    SystemMonitor:2778958 [interfaces.py:start():168] Started disk
+2023-01-10 14:54:36,078 INFO    SystemMonitor:2778958 [interfaces.py:start():168] Started gpu
+2023-01-10 14:54:36,080 INFO    SystemMonitor:2778958 [interfaces.py:start():168] Started memory
+2023-01-10 14:54:36,083 INFO    SystemMonitor:2778958 [interfaces.py:start():168] Started network
+2023-01-10 14:54:36,099 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-10 14:54:36,100 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: stop_status
+2023-01-10 14:54:36,186 DEBUG   SenderThread:2778958 [sender.py:send():303] send: telemetry
+2023-01-10 14:54:36,959 INFO    Thread-14 :2778958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/output.log
+2023-01-10 14:54:36,959 INFO    Thread-14 :2778958 [dir_watcher.py:_on_file_created():275] file/dir created: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/wandb-summary.json
+2023-01-10 14:54:38,956 INFO    Thread-14 :2778958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/output.log
+2023-01-10 14:54:45,959 INFO    Thread-14 :2778958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/output.log
+2023-01-10 14:54:46,959 INFO    Thread-14 :2778958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/output.log
+2023-01-10 14:54:47,744 DEBUG   SenderThread:2778958 [sender.py:send():303] send: exit
+2023-01-10 14:54:47,744 INFO    SenderThread:2778958 [sender.py:send_exit():442] handling exit code: 1
+2023-01-10 14:54:47,745 INFO    SenderThread:2778958 [sender.py:send_exit():444] handling runtime: 11
+2023-01-10 14:54:47,745 INFO    SenderThread:2778958 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-10 14:54:47,746 INFO    SenderThread:2778958 [sender.py:send_exit():450] send defer
+2023-01-10 14:54:47,746 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:47,746 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 0
+2023-01-10 14:54:47,747 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:47,747 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 0
+2023-01-10 14:54:47,747 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 1
+2023-01-10 14:54:47,748 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:47,748 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 1
+2023-01-10 14:54:47,748 INFO    HandlerThread:2778958 [system_monitor.py:finish():160] Stopping system monitor
+2023-01-10 14:54:47,749 DEBUG   SystemMonitor:2778958 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-01-10 14:54:47,750 INFO    HandlerThread:2778958 [interfaces.py:finish():173] Joined cpu
+2023-01-10 14:54:47,750 DEBUG   SystemMonitor:2778958 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-01-10 14:54:47,751 DEBUG   SystemMonitor:2778958 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-01-10 14:54:47,751 INFO    HandlerThread:2778958 [interfaces.py:finish():173] Joined disk
+2023-01-10 14:54:47,755 INFO    HandlerThread:2778958 [interfaces.py:finish():173] Joined gpu
+2023-01-10 14:54:47,755 INFO    HandlerThread:2778958 [interfaces.py:finish():173] Joined memory
+2023-01-10 14:54:47,755 INFO    HandlerThread:2778958 [interfaces.py:finish():173] Joined network
+2023-01-10 14:54:47,756 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:47,757 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 1
+2023-01-10 14:54:47,757 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 2
+2023-01-10 14:54:47,757 DEBUG   SenderThread:2778958 [sender.py:send():303] send: stats
+2023-01-10 14:54:47,758 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:47,759 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 2
+2023-01-10 14:54:47,759 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:47,759 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 2
+2023-01-10 14:54:47,759 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 3
+2023-01-10 14:54:47,760 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:47,760 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 3
+2023-01-10 14:54:47,760 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:47,760 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 3
+2023-01-10 14:54:47,760 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 4
+2023-01-10 14:54:47,761 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:47,761 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 4
+2023-01-10 14:54:47,761 DEBUG   SenderThread:2778958 [sender.py:send():303] send: summary
+2023-01-10 14:54:47,762 INFO    SenderThread:2778958 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-10 14:54:47,762 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:47,763 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 4
+2023-01-10 14:54:47,763 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 5
+2023-01-10 14:54:47,763 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:47,763 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 5
+2023-01-10 14:54:47,764 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:47,764 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 5
+2023-01-10 14:54:47,891 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 6
+2023-01-10 14:54:47,891 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:47,892 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 6
+2023-01-10 14:54:47,892 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:47,892 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 6
+2023-01-10 14:54:47,960 INFO    Thread-14 :2778958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/config.yaml
+2023-01-10 14:54:47,960 INFO    Thread-14 :2778958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/wandb-summary.json
+2023-01-10 14:54:48,744 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: poll_exit
+2023-01-10 14:54:49,897 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 7
+2023-01-10 14:54:49,897 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: poll_exit
+2023-01-10 14:54:49,898 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:49,899 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 7
+2023-01-10 14:54:49,899 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:49,900 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 7
+2023-01-10 14:54:49,900 INFO    SenderThread:2778958 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-01-10 14:54:49,961 INFO    Thread-14 :2778958 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/output.log
+2023-01-10 14:54:49,962 INFO    SenderThread:2778958 [dir_watcher.py:finish():392] scan: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files
+2023-01-10 14:54:49,962 INFO    SenderThread:2778958 [dir_watcher.py:finish():406] scan save: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/output.log output.log
+2023-01-10 14:54:49,962 INFO    SenderThread:2778958 [dir_watcher.py:finish():406] scan save: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/config.yaml config.yaml
+2023-01-10 14:54:49,963 INFO    SenderThread:2778958 [dir_watcher.py:finish():406] scan save: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/wandb-summary.json wandb-summary.json
+2023-01-10 14:54:49,970 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 8
+2023-01-10 14:54:49,977 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:49,977 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 8
+2023-01-10 14:54:49,984 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:49,984 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 8
+2023-01-10 14:54:49,984 INFO    SenderThread:2778958 [file_pusher.py:finish():168] shutting down file pusher
+2023-01-10 14:54:50,435 INFO    Thread-19 :2778958 [upload_job.py:push():143] Uploaded file /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/wandb-summary.json
+2023-01-10 14:54:50,447 INFO    Thread-18 :2778958 [upload_job.py:push():143] Uploaded file /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/config.yaml
+2023-01-10 14:54:50,515 INFO    Thread-17 :2778958 [upload_job.py:push():143] Uploaded file /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/files/output.log
+2023-01-10 14:54:50,715 INFO    Thread-13 :2778958 [sender.py:transition_state():463] send defer: 9
+2023-01-10 14:54:50,716 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:50,716 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 9
+2023-01-10 14:54:50,717 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:50,717 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 9
+2023-01-10 14:54:50,717 INFO    SenderThread:2778958 [file_pusher.py:join():173] waiting for file pusher
+2023-01-10 14:54:50,717 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 10
+2023-01-10 14:54:50,718 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:50,718 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 10
+2023-01-10 14:54:50,718 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:50,718 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 10
+2023-01-10 14:54:50,788 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 11
+2023-01-10 14:54:50,789 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:50,789 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 11
+2023-01-10 14:54:50,789 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:50,790 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 11
+2023-01-10 14:54:50,790 INFO    SenderThread:2778958 [sender.py:transition_state():463] send defer: 12
+2023-01-10 14:54:50,791 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: defer
+2023-01-10 14:54:50,791 DEBUG   SenderThread:2778958 [sender.py:send():303] send: final
+2023-01-10 14:54:50,791 INFO    HandlerThread:2778958 [handler.py:handle_request_defer():162] handle defer: 12
+2023-01-10 14:54:50,791 DEBUG   SenderThread:2778958 [sender.py:send():303] send: footer
+2023-01-10 14:54:50,792 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: defer
+2023-01-10 14:54:50,792 INFO    SenderThread:2778958 [sender.py:send_request_defer():459] handle sender defer: 12
+2023-01-10 14:54:50,794 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: poll_exit
+2023-01-10 14:54:50,794 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: poll_exit
+2023-01-10 14:54:50,795 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: server_info
+2023-01-10 14:54:50,796 DEBUG   SenderThread:2778958 [sender.py:send_request():317] send_request: server_info
+2023-01-10 14:54:50,801 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: get_summary
+2023-01-10 14:54:50,803 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: sampled_history
+2023-01-10 14:54:50,971 INFO    MainThread:2778958 [wandb_run.py:_footer_history_summary_info():3377] rendering history
+2023-01-10 14:54:50,972 INFO    MainThread:2778958 [wandb_run.py:_footer_history_summary_info():3409] rendering summary
+2023-01-10 14:54:50,972 INFO    MainThread:2778958 [wandb_run.py:_footer_sync_info():3333] logging synced files
+2023-01-10 14:54:50,973 DEBUG   HandlerThread:2778958 [handler.py:handle_request():139] handle_request: shutdown
+2023-01-10 14:54:50,973 INFO    HandlerThread:2778958 [handler.py:finish():814] shutting down handler
+2023-01-10 14:54:51,791 INFO    WriterThread:2778958 [datastore.py:close():279] close: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/run-uvlsemig.wandb
+2023-01-10 14:54:51,971 INFO    SenderThread:2778958 [sender.py:finish():1331] shutting down sender
+2023-01-10 14:54:51,971 INFO    SenderThread:2778958 [file_pusher.py:finish():168] shutting down file pusher
+2023-01-10 14:54:51,971 INFO    SenderThread:2778958 [file_pusher.py:join():173] waiting for file pusher
+2023-01-10 14:54:51,977 INFO    MainThread:2778958 [internal.py:handle_exit():78] Internal process exited

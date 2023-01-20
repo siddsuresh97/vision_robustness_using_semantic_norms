@@ -1,0 +1,49 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.5
+    code_path: code/scripts/alexnet_bce_v2.py
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.9.12
+    start_time: 1673559026.576165
+    t:
+      1:
+      - 1
+      - 5
+      - 41
+      - 53
+      - 55
+      2:
+      - 1
+      - 5
+      - 41
+      - 53
+      - 55
+      3:
+      - 1
+      - 5
+      - 14
+      - 23
+      4: 3.9.12
+      5: 0.13.5
+      8:
+      - 5
+batch_size:
+  desc: null
+  value: 512
+epochs:
+  desc: null
+  value: 10
+lr:
+  desc: null
+  value: 0.0006240134683045693
+lr_decay_rate_gamma:
+  desc: null
+  value: 0.4222351525421285
+lr_decay_step_size:
+  desc: null
+  value: 2

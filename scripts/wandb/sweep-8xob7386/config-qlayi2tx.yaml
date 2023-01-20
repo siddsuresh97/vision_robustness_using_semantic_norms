@@ -1,0 +1,12 @@
+wandb_version: 1
+
+batch_size:
+  value: 512
+epochs:
+  value: 10
+lr:
+  value: 0.00018387223527192308
+lr_decay_rate_gamma:
+  value: 0.14691884978094097
+lr_decay_step_size:
+  value: 5

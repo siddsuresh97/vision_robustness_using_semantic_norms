@@ -1,0 +1,30 @@
+2023-01-10 14:54:35,534 INFO    MainThread:2779066 [wandb_setup.py:_flush():68] Configure stats pid to 2779066
+2023-01-10 14:54:35,534 INFO    MainThread:2779066 [wandb_setup.py:_flush():68] Loading settings from /home/siddsuresh97/.config/wandb/settings
+2023-01-10 14:54:35,534 INFO    MainThread:2779066 [wandb_setup.py:_flush():68] Loading settings from /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/settings
+2023-01-10 14:54:35,534 WARNING MainThread:2779066 [wandb_setup.py:_flush():68] Unknown environment variable: WANDB_SERVICE
+2023-01-10 14:54:35,534 INFO    MainThread:2779066 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True', 'entity': 'siddsuresh97', 'project': 'cogsci_bce_sweeps_pt_weighted_frozen_all', 'sweep_id': '3fehig2p', 'root_dir': '/home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts', 'run_id': 'uvlsemig', 'sweep_param_path': '/home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/sweep-3fehig2p/config-uvlsemig.yaml'}
+2023-01-10 14:54:35,534 INFO    MainThread:2779066 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'scripts/alexnet_bce_v2.py', 'program': '/home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/alexnet_bce_v2.py'}
+2023-01-10 14:54:35,534 INFO    MainThread:2779066 [wandb_setup.py:_flush():68] Applying login settings: {'api_key': '***REDACTED***'}
+2023-01-10 14:54:35,534 INFO    MainThread:2779066 [wandb_setup.py:_flush():68] Applying login settings: {'api_key': '***REDACTED***'}
+2023-01-10 14:54:35,534 INFO    MainThread:2779066 [wandb_init.py:_log_setup():476] Logging user logs to /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/logs/debug.log
+2023-01-10 14:54:35,535 INFO    MainThread:2779066 [wandb_init.py:_log_setup():477] Logging internal logs to /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230110_145435-uvlsemig/logs/debug-internal.log
+2023-01-10 14:54:35,535 INFO    MainThread:2779066 [wandb_init.py:init():516] calling init triggers
+2023-01-10 14:54:35,535 INFO    MainThread:2779066 [wandb_init.py:init():519] wandb.init called with sweep_config: {'batch_size': 512, 'epochs': 10, 'lr': 0.0008507720626983109, 'lr_decay_rate_gamma': 0.3943809932269493, 'lr_decay_step_size': 2}
+config: {}
+2023-01-10 14:54:35,535 INFO    MainThread:2779066 [wandb_init.py:init():569] starting backend
+2023-01-10 14:54:35,535 INFO    MainThread:2779066 [wandb_init.py:init():573] setting up manager
+2023-01-10 14:54:35,540 INFO    MainThread:2779066 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-01-10 14:54:35,545 INFO    MainThread:2779066 [wandb_init.py:init():580] backend started and connected
+2023-01-10 14:54:35,549 INFO    MainThread:2779066 [wandb_run.py:_config_callback():1160] config_cb None None {'batch_size': 512, 'epochs': 10, 'lr': 0.0008507720626983109, 'lr_decay_rate_gamma': 0.3943809932269493, 'lr_decay_step_size': 2}
+2023-01-10 14:54:35,551 INFO    MainThread:2779066 [wandb_init.py:init():658] updated telemetry
+2023-01-10 14:54:35,592 INFO    MainThread:2779066 [wandb_init.py:init():693] communicating run to backend with 60 second timeout
+2023-01-10 14:54:35,945 INFO    MainThread:2779066 [wandb_init.py:init():722] run resumed
+2023-01-10 14:54:35,957 INFO    MainThread:2779066 [wandb_run.py:_on_init():2000] communicating current version
+2023-01-10 14:54:36,035 INFO    MainThread:2779066 [wandb_run.py:_on_init():2004] got version response upgrade_message: "wandb version 0.13.7 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-01-10 14:54:36,035 INFO    MainThread:2779066 [wandb_init.py:init():728] starting run threads in backend
+2023-01-10 14:54:36,099 INFO    MainThread:2779066 [wandb_run.py:_console_start():1980] atexit reg
+2023-01-10 14:54:36,099 INFO    MainThread:2779066 [wandb_run.py:_redirect():1838] redirect: SettingsConsole.WRAP_RAW
+2023-01-10 14:54:36,100 INFO    MainThread:2779066 [wandb_run.py:_redirect():1903] Wrapping output streams.
+2023-01-10 14:54:36,100 INFO    MainThread:2779066 [wandb_run.py:_redirect():1925] Redirects installed.
+2023-01-10 14:54:36,101 INFO    MainThread:2779066 [wandb_init.py:init():765] run started, returning control to user process

@@ -1,0 +1,138 @@
+2023-01-10 14:51:50 INFO Running runs: []
+2023-01-10 14:51:50 INFO Agent received command: run
+2023-01-10 14:51:50 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.00017901521054698225
+	lr_decay_rate_gamma: 0.4102709281915313
+	lr_decay_step_size: 2
+2023-01-10 14:51:50 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.00017901521054698225 --lr_decay_rate_gamma=0.4102709281915313 --lr_decay_step_size=2
+2023-01-10 14:54:13 INFO Running runs: []
+2023-01-10 14:54:13 INFO Agent received command: run
+2023-01-10 14:54:13 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.0006240134683045693
+	lr_decay_rate_gamma: 0.4222351525421285
+	lr_decay_step_size: 2
+2023-01-10 14:54:13 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.0006240134683045693 --lr_decay_rate_gamma=0.4222351525421285 --lr_decay_step_size=2
+2023-01-10 14:54:32 INFO Running runs: []
+2023-01-10 14:54:32 INFO Agent received command: run
+2023-01-10 14:54:32 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.0008507720626983109
+	lr_decay_rate_gamma: 0.3943809932269493
+	lr_decay_step_size: 2
+2023-01-10 14:54:32 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.0008507720626983109 --lr_decay_rate_gamma=0.3943809932269493 --lr_decay_step_size=2
+2023-01-10 14:54:37 INFO Running runs: ['uvlsemig']
+2023-01-10 14:54:47 INFO Cleaning up finished run: uvlsemig
+2023-01-10 15:07:56 INFO Running runs: []
+2023-01-10 15:07:56 INFO Agent received command: run
+2023-01-10 15:07:56 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.000789326432016658
+	lr_decay_rate_gamma: 0.11810870605318909
+	lr_decay_step_size: 2
+2023-01-10 15:07:56 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.000789326432016658 --lr_decay_rate_gamma=0.11810870605318909 --lr_decay_step_size=2
+2023-01-10 15:08:01 INFO Running runs: ['c46vcd28']
+2023-01-10 15:12:56 INFO Running runs: []
+2023-01-10 15:12:57 INFO Agent received command: run
+2023-01-10 15:12:57 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 5.294627893193525e-05
+	lr_decay_rate_gamma: 0.12251774930738404
+	lr_decay_step_size: 2
+2023-01-10 15:12:57 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=5.294627893193525e-05 --lr_decay_rate_gamma=0.12251774930738404 --lr_decay_step_size=2
+2023-01-10 15:13:02 INFO Running runs: ['9uw8foez']
+2023-01-12 15:30:22 INFO Running runs: []
+2023-01-12 15:30:23 INFO Agent received command: run
+2023-01-12 15:30:23 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.0006240134683045693
+	lr_decay_rate_gamma: 0.4222351525421285
+	lr_decay_step_size: 2
+2023-01-12 15:30:23 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.0006240134683045693 --lr_decay_rate_gamma=0.4222351525421285 --lr_decay_step_size=2
+2023-01-12 15:30:28 INFO Running runs: ['5rjajh15']
+2023-01-12 15:59:29 INFO Running runs: []
+2023-01-12 15:59:29 INFO Agent received command: run
+2023-01-12 15:59:29 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 8.020448674028376e-05
+	lr_decay_rate_gamma: 0.3907961247833026
+	lr_decay_step_size: 4
+2023-01-12 15:59:29 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=8.020448674028376e-05 --lr_decay_rate_gamma=0.3907961247833026 --lr_decay_step_size=4
+2023-01-12 15:59:34 INFO Running runs: ['76c6otb8']
+2023-01-12 16:03:11 INFO Running runs: []
+2023-01-12 16:03:12 INFO Agent received command: run
+2023-01-12 16:03:12 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.00011037065203080012
+	lr_decay_rate_gamma: 0.4890207735635964
+	lr_decay_step_size: 1
+2023-01-12 16:03:12 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_unfrozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.00011037065203080012 --lr_decay_rate_gamma=0.4890207735635964 --lr_decay_step_size=1
+2023-01-12 16:03:17 INFO Running runs: ['14wpuwaa']
+2023-01-12 16:03:24 INFO Cleaning up finished run: 76c6otb8
+2023-01-12 16:03:27 INFO Agent received command: run
+2023-01-12 16:03:27 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.0007885295871769483
+	lr_decay_rate_gamma: 0.24697039792962744
+	lr_decay_step_size: 1
+2023-01-12 16:03:27 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.0007885295871769483 --lr_decay_rate_gamma=0.24697039792962744 --lr_decay_step_size=1
+2023-01-12 16:07:20 INFO Running runs: []
+2023-01-12 16:07:21 INFO Agent received command: run
+2023-01-12 16:07:21 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.0007973957732942042
+	lr_decay_rate_gamma: 0.4998909493651631
+	lr_decay_step_size: 1
+2023-01-12 16:07:21 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.0007973957732942042 --lr_decay_rate_gamma=0.4998909493651631 --lr_decay_step_size=1
+2023-01-12 16:07:26 INFO Running runs: ['s2cgne6i']
+2023-01-12 16:07:26 INFO Running runs: []
+2023-01-12 16:07:27 INFO Agent received command: run
+2023-01-12 16:07:27 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.0009400616370279805
+	lr_decay_rate_gamma: 0.3895014275747507
+	lr_decay_step_size: 4
+2023-01-12 16:07:27 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_unfrozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.0009400616370279805 --lr_decay_rate_gamma=0.3895014275747507 --lr_decay_step_size=4
+2023-01-12 16:07:32 INFO Running runs: ['x68rp6od']
+2023-01-12 16:32:29 INFO Running runs: []
+2023-01-12 16:32:30 INFO Agent received command: run
+2023-01-12 16:32:30 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.0006375323500056982
+	lr_decay_rate_gamma: 0.11064557447636963
+	lr_decay_step_size: 2
+2023-01-12 16:32:30 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_unfrozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.0006375323500056982 --lr_decay_rate_gamma=0.11064557447636963 --lr_decay_step_size=2
+2023-01-12 16:32:35 INFO Running runs: ['pzljxzb9']
+2023-01-12 16:32:39 INFO Running runs: []
+2023-01-12 16:32:39 INFO Agent received command: run
+2023-01-12 16:32:39 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.0008991456224247126
+	lr_decay_rate_gamma: 0.45669925318792925
+	lr_decay_step_size: 2
+2023-01-12 16:32:39 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_frozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.0008991456224247126 --lr_decay_rate_gamma=0.45669925318792925 --lr_decay_step_size=2
+2023-01-12 16:32:44 INFO Running runs: ['lrywp3d8']
+2023-01-12 19:53:53 INFO Cleaning up finished run: pzljxzb9
+2023-01-12 19:54:02 INFO Agent received command: run
+2023-01-12 19:54:02 INFO Agent starting run with config:
+	batch_size: 512
+	epochs: 10
+	lr: 0.00018387223527192308
+	lr_decay_rate_gamma: 0.14691884978094097
+	lr_decay_step_size: 5
+2023-01-12 19:54:02 INFO About to run command: python alexnet_bce_v2.py --switch_on_lr_decay --sweep --device_ids=0 --output_dir=/staging/suresh27/cogsci/bce_v2_sweep/ --input_root_dir=../../ecoset_leuven_updated --eval=cosine --pre-trained --wandb_project_name=cogsci_bce_sweeps_pt_weighted_unfrozen_all --log_interval=400 --cleaned_features --weighted_loss --ndim=1639 --batch_size=512 --epochs=10 --lr=0.00018387223527192308 --lr_decay_rate_gamma=0.14691884978094097 --lr_decay_step_size=5
+2023-01-12 19:54:07 INFO Running runs: ['qlayi2tx']

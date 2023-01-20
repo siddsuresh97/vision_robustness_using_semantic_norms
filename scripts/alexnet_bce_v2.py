@@ -8,6 +8,7 @@ Implementation of AlexNet, from paper
 "ImageNet Classification with Deep Convolutional Neural Networks" by Alex Krizhevsky et al.
 See: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
 """
+robgpu = True
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 import os
@@ -109,6 +110,9 @@ parser.add_argument('--sweep', action='store_true')
 
 args = parser.parse_args()
 
+if robgpu == True:
+    args.input_root_dir = '/home/siddsuresh97/Projects/datasets/ecoset_leuven_updated'
+
 args.train_img_dir = args.input_root_dir + '/train'
 args.validation_img_dir = args.input_root_dir + '/val'
 args.test_img_dir = args.input_root_dir + '/test'
@@ -128,8 +132,9 @@ else:
 # LOG_DIR = '/staging/suresh27/tensorboard/leuven_ecoset' + '/weighted_cross_entropy'  # tensorboard logs
 CHECKPOINT_DIR = args.output_dir + '/models/{}'.format(args.exp_name)  # model checkpoints
 # make checkpoint path directory
-if not os.path.exists(CHECKPOINT_DIR):
-    os.makedirs(CHECKPOINT_DIR)
+if not args.sweep:
+    if not os.path.exists(CHECKPOINT_DIR):
+        os.makedirs(CHECKPOINT_DIR)
 
 # read class weights from class_weights.json
 if args.sweep == True:
@@ -424,16 +429,16 @@ if __name__ == '__main__':
                 print('lr scheduler on') 
                 lr_scheduler.step()
             # save checkpoints
-            checkpoint_path = os.path.join(CHECKPOINT_DIR, 'alexnet_states_e{}.pkl'.format(epoch + 1))
-            state = {
-                'epoch': epoch + 1,
-                'total_steps': total_steps,
-                'optimizer': optimizer.state_dict(),
-                'model': alexnet.state_dict(),
-                'seed': seed,
-                'wandb_id': wandb.run.id,
-                'lr_scheduler': lr_scheduler.state_dict()
-            }
-            if not args.overfit or not args.sweep:
+            if args.overfit==False and args.sweep==False:
+                checkpoint_path = os.path.join(CHECKPOINT_DIR, 'alexnet_states_e{}.pkl'.format(epoch + 1))
+                state = {
+                    'epoch': epoch + 1,
+                    'total_steps': total_steps,
+                    'optimizer': optimizer.state_dict(),
+                    'model': alexnet.state_dict(),
+                    'seed': seed,
+                    'wandb_id': wandb.run.id,
+                    'lr_scheduler': lr_scheduler.state_dict()
+                }
                 torch.save(state, checkpoint_path)
-
+        

@@ -1,0 +1,434 @@
+2023-01-12 16:07:24,632 INFO    StreamThr :340378 [internal.py:wandb_internal():88] W&B internal server running at pid: 340378, started at: 2023-01-12 16:07:24.628644
+2023-01-12 16:07:24,635 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: status
+2023-01-12 16:07:24,638 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: status
+2023-01-12 16:07:24,640 INFO    WriterThread:340378 [datastore.py:open_for_write():75] open: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/run-s2cgne6i.wandb
+2023-01-12 16:07:24,641 DEBUG   SenderThread:340378 [sender.py:send():303] send: header
+2023-01-12 16:07:24,661 DEBUG   SenderThread:340378 [sender.py:send():303] send: run
+2023-01-12 16:07:24,668 INFO    SenderThread:340378 [sender.py:_maybe_setup_resume():593] checking resume status for siddsuresh97/cogsci_bce_sweeps_pt_weighted_frozen_all/s2cgne6i
+2023-01-12 16:07:24,778 INFO    SenderThread:340378 [sender.py:_maybe_setup_resume():656] configured resuming with: ResumeState(resumed=True,step=1,history=0,events=0,output=0,runtime=0,wandb_runtime=None,summary={},config={'lr': {'value': 0.0007973957732942042}, 'epochs': {'value': 10}, 'batch_size': {'value': 512}, 'lr_decay_step_size': {'value': 1}, 'lr_decay_rate_gamma': {'value': 0.4998909493651631}})
+2023-01-12 16:07:25,033 INFO    SenderThread:340378 [dir_watcher.py:__init__():216] watching files in: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files
+2023-01-12 16:07:25,034 INFO    SenderThread:340378 [sender.py:_start_run_threads():928] run started: s2cgne6i with start time 1673561244.623496
+2023-01-12 16:07:25,034 DEBUG   SenderThread:340378 [sender.py:send():303] send: summary
+2023-01-12 16:07:25,034 INFO    SenderThread:340378 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-12 16:07:25,036 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: check_version
+2023-01-12 16:07:25,037 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: check_version
+2023-01-12 16:07:25,138 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: run_start
+2023-01-12 16:07:25,157 DEBUG   HandlerThread:340378 [system_info.py:__init__():31] System info init
+2023-01-12 16:07:25,157 DEBUG   HandlerThread:340378 [system_info.py:__init__():46] System info init done
+2023-01-12 16:07:25,157 INFO    HandlerThread:340378 [system_monitor.py:start():150] Starting system monitor
+2023-01-12 16:07:25,157 INFO    SystemMonitor:340378 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-01-12 16:07:25,158 INFO    SystemMonitor:340378 [interfaces.py:start():168] Started cpu
+2023-01-12 16:07:25,159 INFO    SystemMonitor:340378 [interfaces.py:start():168] Started disk
+2023-01-12 16:07:25,160 INFO    SystemMonitor:340378 [interfaces.py:start():168] Started gpu
+2023-01-12 16:07:25,162 INFO    SystemMonitor:340378 [interfaces.py:start():168] Started memory
+2023-01-12 16:07:25,165 INFO    SystemMonitor:340378 [interfaces.py:start():168] Started network
+2023-01-12 16:07:25,181 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:07:25,182 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:07:25,274 DEBUG   SenderThread:340378 [sender.py:send():303] send: telemetry
+2023-01-12 16:07:26,038 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_created():275] file/dir created: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:07:26,039 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_created():275] file/dir created: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/wandb-summary.json
+2023-01-12 16:07:28,035 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:07:32,015 DEBUG   SenderThread:340378 [sender.py:send():303] send: telemetry
+2023-01-12 16:07:32,036 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:07:34,037 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:07:40,277 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:07:40,278 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:07:43,041 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:07:45,042 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:07:55,369 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:07:55,372 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:07:56,048 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/config.yaml
+2023-01-12 16:08:10,534 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:08:10,535 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:08:25,165 DEBUG   SystemMonitor:340378 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-01-12 16:08:25,168 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:08:25,977 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:08:25,977 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:08:41,068 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:08:41,071 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:08:55,170 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:08:56,163 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:08:56,163 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:09:03,095 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:09:11,099 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:09:11,277 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:09:11,278 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:09:19,102 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:09:25,172 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:09:26,438 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:09:26,439 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:09:41,565 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:09:41,566 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:09:55,174 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:09:56,657 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:09:56,657 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:10:01,128 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:10:11,725 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:10:11,727 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:10:11,876 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:10:11,877 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:10:14,150 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:10:25,268 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:10:27,077 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:10:27,078 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:10:42,201 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:10:42,202 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:10:55,262 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:10:57,285 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:10:57,285 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:11:12,375 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:11:12,375 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:11:25,265 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:11:27,459 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:11:27,460 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:11:42,549 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:11:42,549 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:11:55,268 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:11:57,682 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:11:57,683 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:12:07,733 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:12:07,734 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:12:09,196 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:12:12,777 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:12:12,777 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:12:25,270 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:12:27,861 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:12:27,861 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:12:42,951 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:12:42,952 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:12:46,875 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:12:46,876 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:12:46,883 DEBUG   SenderThread:340378 [sender.py:send():303] send: history
+2023-01-12 16:12:46,892 DEBUG   SenderThread:340378 [sender.py:send():303] send: summary
+2023-01-12 16:12:46,895 INFO    SenderThread:340378 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-12 16:12:47,209 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/wandb-summary.json
+2023-01-12 16:12:48,209 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:12:50,210 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:12:55,272 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:12:58,039 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:12:58,040 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:13:10,217 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:13:13,776 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:13:13,777 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:13:25,275 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:13:29,739 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:13:29,739 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:13:44,247 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:13:44,856 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:13:44,856 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:13:55,276 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:14:00,058 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:14:00,058 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:14:15,144 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:14:15,145 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:14:25,286 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:14:30,355 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:14:30,356 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:14:45,442 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:14:45,442 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:14:55,280 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:15:00,547 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:15:00,548 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:15:02,287 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:15:04,309 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:15:04,311 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:15:06,288 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:15:15,629 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:15:15,629 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:15:25,283 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:15:30,719 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:15:30,719 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:15:45,874 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:15:45,874 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:15:55,285 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:16:00,966 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:16:00,966 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:16:16,059 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:16:16,059 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:16:25,288 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:16:31,147 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:16:31,147 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:16:46,273 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:16:46,273 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:16:55,290 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:17:01,360 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:17:01,361 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:17:16,452 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:17:16,453 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:17:25,292 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:17:31,545 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:17:31,545 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:17:46,624 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:17:46,625 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:17:55,294 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:18:01,724 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:18:01,724 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:18:16,844 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:18:16,845 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:18:25,296 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:18:31,936 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:18:31,936 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:18:47,027 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:18:47,028 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:18:55,299 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:19:02,118 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:19:02,119 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:19:17,217 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:19:17,218 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:19:17,714 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:19:17,715 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:19:25,300 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:19:32,308 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:19:32,308 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:19:47,391 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:19:47,391 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:19:55,302 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:20:02,488 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:20:02,488 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:20:17,579 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:20:17,579 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:20:25,305 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:20:32,669 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:20:32,669 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:20:47,759 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:20:47,759 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:20:55,306 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:21:02,852 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:21:02,852 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:21:17,933 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:21:17,933 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:21:25,307 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:21:33,025 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:21:33,026 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:21:48,108 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:21:48,108 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:21:55,310 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:22:03,200 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:22:03,200 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:22:18,288 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:22:18,288 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:22:25,311 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:22:33,384 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:22:33,384 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:22:48,481 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:22:48,481 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:22:54,205 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:22:54,205 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:22:54,208 DEBUG   SenderThread:340378 [sender.py:send():303] send: history
+2023-01-12 16:22:54,208 DEBUG   SenderThread:340378 [sender.py:send():303] send: summary
+2023-01-12 16:22:54,210 INFO    SenderThread:340378 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-12 16:22:54,472 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/wandb-summary.json
+2023-01-12 16:22:55,313 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:22:56,473 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:23:03,576 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:23:03,576 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:23:12,486 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:23:18,708 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:23:18,708 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:23:25,314 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:23:33,815 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:23:33,818 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:23:43,598 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:43,615 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:43,827 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:43,844 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:44,167 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:44,214 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:44,295 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:44,319 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:44,407 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:44,439 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:45,615 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:45,678 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:46,114 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:46,355 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:46,615 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:46,659 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:46,943 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:46,963 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:47,075 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:47,099 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:47,220 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:47,247 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:48,913 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:23:48,914 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:23:54,247 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:54,247 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:54,248 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:54,248 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:54,248 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:54,249 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:54,250 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:54,253 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:23:55,317 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:24:03,998 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:24:03,999 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:24:04,529 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:24:12,532 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:24:19,177 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:24:19,177 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:24:25,319 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:24:30,549 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:24:32,550 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:24:34,263 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:24:34,263 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:24:38,552 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:24:49,382 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:24:49,382 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:24:55,320 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:24:58,559 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:25:04,467 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:25:04,467 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:25:14,565 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:25:19,179 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:25:19,191 DEBUG   SenderThread:340378 [sender.py:send():303] send: history
+2023-01-12 16:25:19,203 DEBUG   SenderThread:340378 [sender.py:send():303] send: summary
+2023-01-12 16:25:19,211 INFO    SenderThread:340378 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-12 16:25:19,222 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: partial_history
+2023-01-12 16:25:19,567 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/wandb-summary.json
+2023-01-12 16:25:19,582 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:25:19,582 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:25:20,568 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:25:25,323 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:25:34,664 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:25:34,664 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:25:49,748 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:25:49,748 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:25:55,329 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:26:04,842 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:26:04,842 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:26:19,929 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:26:19,930 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:26:25,328 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:26:35,035 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:26:35,036 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:26:50,126 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:26:50,127 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:26:55,329 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:27:05,214 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:27:05,215 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:27:20,305 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:27:20,306 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:27:25,332 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:27:35,394 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:27:35,395 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:27:50,487 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:27:50,487 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:27:55,335 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:28:05,579 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:28:05,581 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:28:20,671 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:28:20,671 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:28:25,337 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:28:35,765 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:28:35,766 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:28:50,855 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:28:50,855 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:28:55,339 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:29:05,943 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:29:05,944 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:29:21,038 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:29:21,038 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:29:25,341 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:29:36,125 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:29:36,126 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:29:51,217 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:29:51,218 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:29:55,344 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:30:06,308 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:30:06,309 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:30:21,387 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:30:21,387 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:30:25,346 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:30:36,466 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:30:36,466 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:30:51,547 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:30:51,548 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:30:55,349 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:31:06,641 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:31:06,641 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:31:21,731 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:31:21,732 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:31:25,351 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:31:36,811 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:31:36,811 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:31:51,896 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:31:51,897 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:31:55,354 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:32:06,987 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:32:06,988 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:32:22,082 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-12 16:32:22,083 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: stop_status
+2023-01-12 16:32:25,356 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:32:29,876 DEBUG   SenderThread:340378 [sender.py:send():303] send: exit
+2023-01-12 16:32:29,876 INFO    SenderThread:340378 [sender.py:send_exit():442] handling exit code: 0
+2023-01-12 16:32:29,892 INFO    SenderThread:340378 [sender.py:send_exit():444] handling runtime: 1504
+2023-01-12 16:32:29,896 INFO    SenderThread:340378 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-12 16:32:29,897 INFO    SenderThread:340378 [sender.py:send_exit():450] send defer
+2023-01-12 16:32:29,898 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: defer
+2023-01-12 16:32:29,899 INFO    HandlerThread:340378 [handler.py:handle_request_defer():162] handle defer: 0
+2023-01-12 16:32:29,900 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: defer
+2023-01-12 16:32:29,900 INFO    SenderThread:340378 [sender.py:send_request_defer():459] handle sender defer: 0
+2023-01-12 16:32:29,900 INFO    SenderThread:340378 [sender.py:transition_state():463] send defer: 1
+2023-01-12 16:32:29,900 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: defer
+2023-01-12 16:32:29,900 INFO    HandlerThread:340378 [handler.py:handle_request_defer():162] handle defer: 1
+2023-01-12 16:32:29,901 INFO    HandlerThread:340378 [system_monitor.py:finish():160] Stopping system monitor
+2023-01-12 16:32:29,905 DEBUG   SystemMonitor:340378 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-01-12 16:32:29,905 DEBUG   SystemMonitor:340378 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-01-12 16:32:29,908 INFO    HandlerThread:340378 [interfaces.py:finish():173] Joined cpu
+2023-01-12 16:32:29,909 INFO    HandlerThread:340378 [interfaces.py:finish():173] Joined disk
+2023-01-12 16:32:30,659 INFO    HandlerThread:340378 [interfaces.py:finish():173] Joined gpu
+2023-01-12 16:32:30,659 INFO    HandlerThread:340378 [interfaces.py:finish():173] Joined memory
+2023-01-12 16:32:30,660 INFO    HandlerThread:340378 [interfaces.py:finish():173] Joined network
+2023-01-12 16:32:30,660 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: defer
+2023-01-12 16:32:30,661 INFO    SenderThread:340378 [sender.py:send_request_defer():459] handle sender defer: 1
+2023-01-12 16:32:30,661 INFO    SenderThread:340378 [sender.py:transition_state():463] send defer: 2
+2023-01-12 16:32:30,661 DEBUG   SenderThread:340378 [sender.py:send():303] send: stats
+2023-01-12 16:32:30,663 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: defer
+2023-01-12 16:32:30,663 INFO    HandlerThread:340378 [handler.py:handle_request_defer():162] handle defer: 2
+2023-01-12 16:32:30,669 DEBUG   SenderThread:340378 [sender.py:send():303] send: history
+2023-01-12 16:32:30,671 DEBUG   SenderThread:340378 [sender.py:send():303] send: summary
+2023-01-12 16:32:30,680 INFO    SenderThread:340378 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-12 16:32:30,681 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: defer
+2023-01-12 16:32:30,681 INFO    SenderThread:340378 [sender.py:send_request_defer():459] handle sender defer: 2
+2023-01-12 16:32:30,681 INFO    SenderThread:340378 [sender.py:transition_state():463] send defer: 3
+2023-01-12 16:32:30,682 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: defer
+2023-01-12 16:32:30,682 INFO    HandlerThread:340378 [handler.py:handle_request_defer():162] handle defer: 3
+2023-01-12 16:32:30,684 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: defer
+2023-01-12 16:32:30,684 INFO    SenderThread:340378 [sender.py:send_request_defer():459] handle sender defer: 3
+2023-01-12 16:32:30,684 INFO    SenderThread:340378 [sender.py:transition_state():463] send defer: 4
+2023-01-12 16:32:30,684 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: defer
+2023-01-12 16:32:30,684 INFO    HandlerThread:340378 [handler.py:handle_request_defer():162] handle defer: 4
+2023-01-12 16:32:30,687 DEBUG   SenderThread:340378 [sender.py:send():303] send: summary
+2023-01-12 16:32:30,695 INFO    SenderThread:340378 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-12 16:32:30,695 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: defer
+2023-01-12 16:32:30,695 INFO    SenderThread:340378 [sender.py:send_request_defer():459] handle sender defer: 4
+2023-01-12 16:32:30,696 INFO    SenderThread:340378 [sender.py:transition_state():463] send defer: 5
+2023-01-12 16:32:30,696 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: defer
+2023-01-12 16:32:30,696 INFO    HandlerThread:340378 [handler.py:handle_request_defer():162] handle defer: 5
+2023-01-12 16:32:30,696 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: defer
+2023-01-12 16:32:30,697 INFO    SenderThread:340378 [sender.py:send_request_defer():459] handle sender defer: 5
+2023-01-12 16:32:30,697 INFO    SenderThread:340378 [sender.py:transition_state():463] send defer: 6
+2023-01-12 16:32:30,697 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: defer
+2023-01-12 16:32:30,697 INFO    HandlerThread:340378 [handler.py:handle_request_defer():162] handle defer: 6
+2023-01-12 16:32:30,697 DEBUG   SenderThread:340378 [sender.py:send_request():317] send_request: defer
+2023-01-12 16:32:30,697 INFO    SenderThread:340378 [sender.py:send_request_defer():459] handle sender defer: 6
+2023-01-12 16:32:30,726 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/wandb-summary.json
+2023-01-12 16:32:30,878 DEBUG   HandlerThread:340378 [handler.py:handle_request():139] handle_request: poll_exit
+2023-01-12 16:32:31,104 WARNING StreamThr :340378 [internal.py:is_dead():385] Internal process exiting, parent pid 340358 disappeared
+2023-01-12 16:32:31,105 ERROR   StreamThr :340378 [internal.py:wandb_internal():147] Internal process shutdown.
+2023-01-12 16:32:31,697 INFO    WriterThread:340378 [datastore.py:close():279] close: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/run-s2cgne6i.wandb
+2023-01-12 16:32:31,880 INFO    HandlerThread:340378 [handler.py:finish():814] shutting down handler
+2023-01-12 16:32:32,458 INFO    SenderThread:340378 [sender.py:transition_state():463] send defer: 7
+2023-01-12 16:32:32,459 INFO    SenderThread:340378 [sender.py:finish():1331] shutting down sender
+2023-01-12 16:32:32,459 INFO    SenderThread:340378 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-01-12 16:32:32,726 INFO    Thread-14 :340378 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:32:32,727 INFO    SenderThread:340378 [dir_watcher.py:finish():392] scan: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files
+2023-01-12 16:32:32,733 INFO    SenderThread:340378 [dir_watcher.py:finish():406] scan save: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log output.log
+2023-01-12 16:32:32,751 INFO    SenderThread:340378 [dir_watcher.py:finish():406] scan save: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/config.yaml config.yaml
+2023-01-12 16:32:32,751 INFO    SenderThread:340378 [dir_watcher.py:finish():406] scan save: /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/wandb-summary.json wandb-summary.json
+2023-01-12 16:32:32,753 INFO    SenderThread:340378 [file_pusher.py:finish():168] shutting down file pusher
+2023-01-12 16:32:32,759 INFO    SenderThread:340378 [file_pusher.py:join():173] waiting for file pusher
+2023-01-12 16:32:33,318 INFO    Thread-18 :340378 [upload_job.py:push():143] Uploaded file /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/config.yaml
+2023-01-12 16:32:33,327 INFO    Thread-17 :340378 [upload_job.py:push():143] Uploaded file /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/output.log
+2023-01-12 16:32:33,369 INFO    Thread-19 :340378 [upload_job.py:push():143] Uploaded file /home/siddsuresh97/Projects/vision_robustness_using_semantic_norms/scripts/wandb/run-20230112_160724-s2cgne6i/files/wandb-summary.json
