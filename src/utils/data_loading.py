@@ -47,8 +47,9 @@ def get_train_test_valid_debug_dataloader(train_dataset, val_dataset, test_datas
 def get_train_test_valid_debug_dataset(IMAGE_DIM, train_img_dir, validation_img_dir, test_img_dir, batch_size):
     train_dataset = datasets.ImageFolder(train_img_dir, transforms.Compose([
         # transforms.RandomResizedCrop(IMAGE_DIM, scale=(0.9, 1.0), ratio=(0.9, 1.1)),
-        transforms.CenterCrop(IMAGE_DIM),
+        # transforms.CenterCrop(IMAGE_DIM),
         # transforms.RandomHorizontalFlip(),
+        transforms.TrivialAugmentWide(),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
     ]))
@@ -59,14 +60,14 @@ def get_train_test_valid_debug_dataset(IMAGE_DIM, train_img_dir, validation_img_
     print('unique classes are:', len(dict(Counter(debug_dataset.dataset.targets))))
     print(dict(Counter(debug_dataset.dataset.targets)))
     val_dataset = datasets.ImageFolder(validation_img_dir, transforms.Compose([
-        transforms.CenterCrop(IMAGE_DIM),
+        # transforms.CenterCrop(IMAGE_DIM),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
     ]))
     print('Validation dataset created')
     # add code to load test data and create test dataloader
     test_dataset = datasets.ImageFolder(test_img_dir, transforms.Compose([
-        transforms.CenterCrop(IMAGE_DIM),
+        # transforms.CenterCrop(IMAGE_DIM),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
     ]))
