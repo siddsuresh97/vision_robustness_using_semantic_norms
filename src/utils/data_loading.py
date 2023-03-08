@@ -64,6 +64,7 @@ def get_train_test_valid_debug_dataset(IMAGE_DIM, train_img_dir, validation_img_
         # transforms.CenterCrop(IMAGE_DIM),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
+        transforms.Resize((IMAGE_DIM, IMAGE_DIM))
     ]))
     print('Validation dataset created')
     # add code to load test data and create test dataloader
@@ -71,6 +72,7 @@ def get_train_test_valid_debug_dataset(IMAGE_DIM, train_img_dir, validation_img_
         # transforms.CenterCrop(IMAGE_DIM),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
+        transforms.Resize((IMAGE_DIM, IMAGE_DIM))
     ]))
     print('Test dataset created')
     return train_dataset, val_dataset, test_dataset, debug_dataset
