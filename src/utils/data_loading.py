@@ -52,6 +52,7 @@ def get_train_test_valid_debug_dataset(IMAGE_DIM, train_img_dir, validation_img_
         transforms.RandAugment(),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.50616427,0.48602325,0.43117783], std=[0.28661095,0.27966835,0.29607392]),
+        transforms.Resize((IMAGE_DIM, IMAGE_DIM))
     ]))
     print('train created')
     debug_dataset = torch.utils.data.Subset(train_dataset, list(range(1, batch_size*10)))
