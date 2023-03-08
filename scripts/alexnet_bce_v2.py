@@ -241,11 +241,11 @@ if __name__ == '__main__':
                                                                                                                 test_img_dir=args.test_img_dir, 
                                                                                                                 batch_size=args.batch_size)
 
-    train_dataloader, val_dataloader, test_dataloader, debug_data_loader = get_train_test_valid_debug_dataloader(train_dataset, 
-                                                                                                                    val_dataset, 
-                                                                                                                    test_dataset, 
-                                                                                                                    debug_dataset, 
-                                                                                                                    batch_size = args.batch_size)
+    # train_dataloader, val_dataloader, test_dataloader, debug_data_loader = get_train_test_valid_debug_dataloader(train_dataset, 
+    #                                                                                                                 val_dataset, 
+    #                                                                                                                 test_dataset, 
+    #                                                                                                                 debug_dataset, 
+    #                                                                                                                 batch_size = args.batch_size)
 
     
 
