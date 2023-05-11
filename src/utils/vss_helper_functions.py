@@ -14,7 +14,7 @@ def get_prediction_df(model_type, model_weights_path, epoch, img_dir, concept_nu
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = load_model(model_type, epoch, model_weights_path, device)
     imageloader = get_image_loader(img_dir)
-    _, pre_final_activations = get_model_activtions(model, imageloader, device)
+    _, pre_final_activations = get_model_activtions(model, imageloader, device, model_type)
     df = pd.DataFrame(pre_final_activations)
     df.index = [concept_number_to_name[i] for i in range(df.shape[0])]
     return df
@@ -104,14 +104,17 @@ def get_image_loader(img_dir):
     loader = torch.utils.data.DataLoader(dataset, batch_size=256, shuffle=False)
     return loader
 
-def get_model_activtions(model, image_loader, device):
+def get_model_activtions(model, image_loader, device, model_type):
     activation = {}
     def getActivation(name):
         # the hook signature
         def hook(model, input, output):
             activation[name] = output.detach()
         return hook
-    pre_final_layer_hook = model.classifier[6][-2].register_forward_hook(getActivation('pre_final_layer'))
+    if 'hybrid' in model_type:
+        pre_final_layer_hook = model[0].classifier[-1][-2].register_forward_hook(getActivation('pre_final_layer'))
+    else:   
+        pre_final_layer_hook = model.classifier[-1][-2].register_forward_hook(getActivation('pre_final_layer'))
     model.eval()
     pre_final_activations = []
     final_layer_outputs = []
